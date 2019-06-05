@@ -26,6 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
   - `ng build --prod --base-href=https://dnefedchenko.github.io/timex-client/`
   - `npx angular-cli-ghpages --dir=dist/timex-client`
+  - checkout application is available on `https://dnefedchenko.github.io/timex-client/`
 
 ## Further help
 
