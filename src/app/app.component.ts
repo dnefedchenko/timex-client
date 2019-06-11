@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {SIGN_IN_URL,
+import {
+  SIGN_IN_URL,
   TIMESHEET_LIST_URL,
   SIGN_IN_HEADING,
-  TIMESHEET_LIST_HEADING} from './app.constants';
+  TIMESHEET_LIST_HEADING, ENTER_HOURS_HEADING, ENTER_HOURS_URL
+} from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -30,16 +32,18 @@ export class AppComponent implements OnInit {
   }
 
   private updateHeadingMessage(url: string) {
-    switch (url) {
-      case SIGN_IN_URL:
-        this.headingMessage = SIGN_IN_HEADING;
-        break;
-      case TIMESHEET_LIST_URL:
-        this.headingMessage = TIMESHEET_LIST_HEADING;
-        break;
-      default:
-        this.headingMessage = SIGN_IN_HEADING;
-        break;
+    if (this.urlIncludes(url, SIGN_IN_URL)) {
+      this.headingMessage = SIGN_IN_HEADING;
     }
+    if (this.urlIncludes(url, TIMESHEET_LIST_URL)) {
+      this.headingMessage = TIMESHEET_LIST_HEADING;
+    }
+    if (this.urlIncludes(url, ENTER_HOURS_URL)) {
+      this.headingMessage = ENTER_HOURS_HEADING;
+    }
+  }
+
+  private urlIncludes(url: string, maybeIncludedChunk): boolean {
+    return url.includes(maybeIncludedChunk);
   }
 }

@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TimesheetListComponent } from './timesheet-list/timesheet-list.component';
 import { HeaderComponent } from './common/header/header.component';
+import { EnterHoursComponent } from './timesheet/enter-hours.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { HeaderComponent } from './common/header/header.component';
     LoginComponent,
     PageNotFoundComponent,
     TimesheetListComponent,
-    HeaderComponent
+    HeaderComponent,
+    EnterHoursComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

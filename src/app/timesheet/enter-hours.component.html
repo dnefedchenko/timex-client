@@ -1,0 +1,59 @@
+<div class="timex-fully-aligned-container timex-column-directed-flex">
+  <p>Period ending: January 21, 2017</p>
+
+  <table class="timex-table">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody [formGroup]="timeTrackingForm">
+      <tr>
+        <td>
+          <select class="timex-select" formControlName="department">
+            <option>Information Technology</option>
+            <option>Service Desk</option>
+            <option>Sales</option>
+            <option>Business Analysts</option>
+            <option>Q&A</option>
+          </select>
+        </td>
+        <td>
+          <input formControlName="monday" type="number" class="timex-input timex-enter-hour-cell" value="4.00">
+        </td>
+        <td>
+          <input formControlName="tuesday" type="number" class="timex-input timex-enter-hour-cell" value="8.00">
+        </td>
+        <td>
+          <input formControlName="wednesday" type="number" class="timex-input timex-enter-hour-cell" value="4.00">
+        </td>
+        <td>
+          <input formControlName="thursday" type="number" class="timex-input timex-enter-hour-cell" value="0.00">
+        </td>
+        <td>
+          <input formControlName="friday" type="number" class="timex-input timex-enter-hour-cell" value="0.00">
+        </td>
+        <td>
+          <input formControlName="saturday" type="number" class="timex-input timex-enter-hour-cell" value="0.00">
+        </td>
+        <td>
+          <input formControlName="sunday" type="number" class="timex-input timex-enter-hour-cell" value="0.00">
+        </td>
+        <td>{{totalHours}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="timex-horizontally-aligned-container">
+    <button type="button" class="timex-button-primary" (click)="saveTimeReport()">Save Time Report</button>
+    <button type="button" class="timex-button-primary" (click)="cancelTimeRegistration()">Cancel Registration</button>
+  </div>
+</div>

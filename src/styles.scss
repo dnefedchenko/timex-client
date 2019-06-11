@@ -18,9 +18,15 @@ html, body {
   box-sizing:border-box;
 }
 
-body, input, button {
+body, input, select, button {
   font-family: 'Roboto';
   font-size: $default-font-size;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 %timex-flex-container {
@@ -83,7 +89,7 @@ body, input, button {
   transform: scale(0.99);
 }
 
-.timex-input {
+.timex-input, .timex-select {
   padding: .5rem 1rem;
   display: inline-block;
   border: 1px solid #ccc;
@@ -93,11 +99,16 @@ body, input, button {
   box-sizing: border-box;
 }
 
+.timex-select {
+  height: 2.25em;
+}
+
 .timex-table {
   border: 1px solid #cbcbcb;
   border-collapse: collapse;
   border-spacing: 0;
   line-height: 1.6;
+  margin-bottom: 10px;
 
   thead {
     background-color: #e0e0e0;

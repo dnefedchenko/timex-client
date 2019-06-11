@@ -1,0 +1,9 @@
+@import "../../variables";
+
+.timex-enter-hour-cell {
+  max-width: 70px;
+}
+
+button:first-child {
+  margin-right: $default-right-margin;
+}
