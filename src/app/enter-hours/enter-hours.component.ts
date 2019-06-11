@@ -56,6 +56,7 @@ export class EnterHoursComponent implements OnInit {
 
   public saveTimeReport(): void {
     console.log(`Saving ${JSON.stringify(this.timeTrackingForm.value)}`);
+    this.router.navigateByUrl(TIMESHEET_LIST_URL);
   }
 
   public cancelTimeRegistration(): void {

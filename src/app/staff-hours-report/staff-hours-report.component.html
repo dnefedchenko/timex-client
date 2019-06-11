@@ -1,0 +1,46 @@
+<div class="timex-fully-aligned-container timex-column-directed-flex">
+  <table class="timex-table">
+    <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Type</th>
+      <th>Hours For Week</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">John Smith</td>
+      <td [ngStyle]="{'text-align': 'left'}">Staff</td>
+      <td [ngStyle]="{'text-align': 'right'}">65.00</td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">Kishore Kumar</td>
+      <td [ngStyle]="{'text-align': 'left'}">Management</td>
+      <td [ngStyle]="{'text-align': 'right'}">40.00</td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">Ying Lee</td>
+      <td [ngStyle]="{'text-align': 'left'}">Staff</td>
+      <td [ngStyle]="{'text-align': 'right'}">37.00</td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">Zavadi Johari</td>
+      <td [ngStyle]="{'text-align': 'left'}">Staff</td>
+      <td [ngStyle]="{'text-align': 'right'}">37.50</td>
+    </tr>
+    <tr class="timex-average">
+      <td colspan="2">Average Hours</td>
+      <td>39.00</td>
+    </tr>
+    <tr class="timex-total">
+      <td colspan="2">TOTAL</td>
+      <td>177.50</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="timex-horizontally-aligned-container">
+    <button type="button" class="timex-button-primary" (click)="print()">Print</button>
+    <button type="button" class="timex-button-primary" (click)="approve()">Approve</button>
+  </div>
+</div>

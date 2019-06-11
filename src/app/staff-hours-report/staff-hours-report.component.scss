@@ -1,0 +1,22 @@
+@import '../../variables';
+
+.timex-average {
+  border: $default-border;
+
+  td {
+    text-align: right;
+  }
+}
+
+.timex-total {
+  font-weight: bold;
+  text-align: right;
+
+  td {
+    text-align: right;
+  }
+}
+
+button:first-child {
+  margin-right: $default-right-margin;
+}

@@ -7,8 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TimesheetListComponent } from './timesheet-list/timesheet-list.component';
 import { HeaderComponent } from './common/header/header.component';
-import { EnterHoursComponent } from './timesheet/enter-hours.component';
+import { EnterHoursComponent } from './enter-hours/enter-hours.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StaffHoursReportComponent } from './staff-hours-report/staff-hours-report.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     TimesheetListComponent,
     HeaderComponent,
-    EnterHoursComponent
+    EnterHoursComponent,
+    StaffHoursReportComponent
   ],
   imports: [
     BrowserModule,
