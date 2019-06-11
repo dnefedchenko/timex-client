@@ -47,6 +47,11 @@ body, input, button {
   height: $full-screen-height;
 }
 
+.timex-column-directed-flex {
+  @extend %timex-flex-container;
+  flex-direction: column;
+}
+
 .timex-button-primary {
   display: inline-block;
   border: none;
