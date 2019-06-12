@@ -127,8 +127,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   td, th {
-    border-left: $default-border;
-    border-width: 0 0 0 1px;
+    border: $default-border;
     text-align: center;
     font-size: inherit;
     margin: 0;

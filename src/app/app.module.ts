@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StaffHoursReportComponent } from './staff-hours-report/staff-hours-report.component';
 import { ApproveTimesheetsComponent } from './approve-timesheets/approve-timesheets.component';
 import { PrintTimesheetComponent } from './print-timesheet/print-timesheet.component';
+import { MarkPaidComponent } from './mark-paid/mark-paid.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PrintTimesheetComponent } from './print-timesheet/print-timesheet.compo
     EnterHoursComponent,
     StaffHoursReportComponent,
     ApproveTimesheetsComponent,
-    PrintTimesheetComponent
+    PrintTimesheetComponent,
+    MarkPaidComponent
   ],
   imports: [
     BrowserModule,

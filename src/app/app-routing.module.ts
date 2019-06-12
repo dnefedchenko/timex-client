@@ -7,6 +7,7 @@ import {EnterHoursComponent} from './enter-hours/enter-hours.component';
 import {StaffHoursReportComponent} from './staff-hours-report/staff-hours-report.component';
 import {ApproveTimesheetsComponent} from './approve-timesheets/approve-timesheets.component';
 import {PrintTimesheetComponent} from './print-timesheet/print-timesheet.component';
+import {MarkPaidComponent} from './mark-paid/mark-paid.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'timesheets/:timesheetId/print', component: PrintTimesheetComponent },
   { path: 'staff-hours-report', component: StaffHoursReportComponent },
   { path: 'approve-timesheets', component: ApproveTimesheetsComponent },
+  { path: 'mark-paid', component: MarkPaidComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

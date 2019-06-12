@@ -1,0 +1,55 @@
+<div class="timex-fully-aligned-container timex-column-directed-flex">
+  <table class="timex-table">
+    <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Hours For Week</th>
+      <th>Mark Paid</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">John Smith</a>
+      </td>
+      <td [ngStyle]="{'text-align': 'right'}">65.00</td>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">Kishore Kumar</a>
+      </td>
+      <td [ngStyle]="{'text-align': 'right'}">40.00</td>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">Ying Lee</a>
+      </td>
+      <td [ngStyle]="{'text-align': 'right'}">37.00</td>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">Zavadi Johari</a>
+      </td>
+      <td [ngStyle]="{'text-align': 'right'}">37.50</td>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="timex-horizontally-aligned-container">
+    <button type="button" class="timex-button-primary" (click)="save()">Save</button>
+    <button type="button" class="timex-button-primary" (click)="reset()">Reset</button>
+  </div>
+</div>
