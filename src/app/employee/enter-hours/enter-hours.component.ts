@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {TIMESHEET_LIST_URL} from '../app.constants';
+import {TIMESHEET_LIST_URL} from '../../app.constants';
 
 @Component({
   selector: 'app-timesheet',

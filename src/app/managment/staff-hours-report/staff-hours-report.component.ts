@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {APPROVE_TIMESHEETS_URL} from '../app.constants';
+import {APPROVE_TIMESHEETS_URL} from '../../app.constants';
 
 @Component({
   selector: 'app-staff-hours-report',
