@@ -10,8 +10,8 @@ import {TIMESHEET_LIST_URL} from '../app.constants';
 })
 export class EnterHoursComponent implements OnInit {
   private timesheetId: string;
-  private timeTrackingForm: FormGroup;
-  private pageLoadingCompleted = false;
+  public timeTrackingForm: FormGroup;
+  public pageLoadingCompleted = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
