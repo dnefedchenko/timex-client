@@ -29,6 +29,10 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.timex-bold-font {
+  font-weight: bold;
+}
+
 %timex-flex-container {
   display: flex;
 }
@@ -47,6 +51,11 @@ input[type=number]::-webkit-outer-spin-button {
   @extend %timex-flex-container;
   justify-content: center;
   align-items: center;
+}
+
+.timex-space-between-container {
+  @extend %timex-flex-container;
+  justify-content: space-between;
 }
 
 .timex-full-height-container {

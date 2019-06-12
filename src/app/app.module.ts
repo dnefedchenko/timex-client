@@ -11,6 +11,7 @@ import { EnterHoursComponent } from './enter-hours/enter-hours.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StaffHoursReportComponent } from './staff-hours-report/staff-hours-report.component';
 import { ApproveTimesheetsComponent } from './approve-timesheets/approve-timesheets.component';
+import { PrintTimesheetComponent } from './print-timesheet/print-timesheet.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ApproveTimesheetsComponent } from './approve-timesheets/approve-timeshe
     HeaderComponent,
     EnterHoursComponent,
     StaffHoursReportComponent,
-    ApproveTimesheetsComponent
+    ApproveTimesheetsComponent,
+    PrintTimesheetComponent
   ],
   imports: [
     BrowserModule,

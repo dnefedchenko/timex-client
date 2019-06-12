@@ -10,7 +10,7 @@
     <tbody>
     <tr>
       <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/enter-hours', 1234]">John Smith</a>
+        <a [routerLink]="['/timesheets', 1234, 'print']">John Smith</a>
       </td>
       <td [ngStyle]="{'text-align': 'right'}">65.00</td>
       <td class="timex-approval-box">
@@ -26,7 +26,9 @@
       </td>
     </tr>
     <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Kishore Kumar</td>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">Kishore Kumar</a>
+      </td>
       <td [ngStyle]="{'text-align': 'right'}">40.00</td>
       <td class="timex-approval-box">
         <span>
@@ -41,7 +43,9 @@
       </td>
     </tr>
     <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Ying Lee</td>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">Ying Lee</a>
+      </td>
       <td [ngStyle]="{'text-align': 'right'}">37.00</td>
       <td class="timex-approval-box">
         <span>
@@ -57,7 +61,9 @@
     </tr>
     <tr>
 
-      <td [ngStyle]="{'text-align': 'left'}">Zavadi Johari</td>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/timesheets', 1234, 'print']">Zavadi Johari</a>
+      </td>
       <td [ngStyle]="{'text-align': 'right'}">37.50</td>
       <td class="timex-approval-box">
         <span>
