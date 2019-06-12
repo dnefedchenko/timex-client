@@ -4,7 +4,13 @@ import {
   SIGN_IN_URL,
   TIMESHEET_LIST_URL,
   SIGN_IN_HEADING,
-  TIMESHEET_LIST_HEADING, ENTER_HOURS_HEADING, ENTER_HOURS_URL, STAFF_HOURS_REPORT_URL, STAFF_HOURS_REPORT_HEADING
+  TIMESHEET_LIST_HEADING,
+  ENTER_HOURS_HEADING,
+  ENTER_HOURS_URL,
+  STAFF_HOURS_REPORT_URL,
+  STAFF_HOURS_REPORT_HEADING,
+  APPROVE_TIMESHEETS_URL,
+  APPROVE_TIMESHEETS_HEADING
 } from './app.constants';
 
 @Component({
@@ -43,6 +49,9 @@ export class AppComponent implements OnInit {
     }
     if (this.urlIncludes(url, STAFF_HOURS_REPORT_URL)) {
       this.headingMessage = STAFF_HOURS_REPORT_HEADING;
+    }
+    if (this.urlIncludes(url, APPROVE_TIMESHEETS_URL)) {
+      this.headingMessage = APPROVE_TIMESHEETS_HEADING;
     }
   }
 

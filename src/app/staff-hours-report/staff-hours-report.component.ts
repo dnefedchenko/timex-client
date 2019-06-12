@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {APPROVE_TIMESHEETS_URL} from '../app.constants';
 
 @Component({
   selector: 'app-staff-hours-report',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffHoursReportComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,6 +19,6 @@ export class StaffHoursReportComponent implements OnInit {
   }
 
   public approve(): void {
-    console.log('Report approval');
+    this.router.navigateByUrl(APPROVE_TIMESHEETS_URL);
   }
 }

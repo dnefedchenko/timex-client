@@ -1,0 +1,81 @@
+<div class="timex-fully-aligned-container timex-column-directed-flex">
+  <table class="timex-table">
+    <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Hours For Week</th>
+      <th>Approve</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">
+        <a [routerLink]="['/enter-hours', 1234]">John Smith</a>
+      </td>
+      <td [ngStyle]="{'text-align': 'right'}">65.00</td>
+      <td class="timex-approval-box">
+        <span>
+          <input type="radio" id="john_smith_yes" name="john_smith" class="timex-confirmation-radio">
+          <label for="john_smith_yes">Yes</label>
+        </span>
+
+        <span>
+          <input type="radio" id="john_smith_no" name="john_smith" class="timex-confirmation-radio">
+          <label for="john_smith_no">No</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">Kishore Kumar</td>
+      <td [ngStyle]="{'text-align': 'right'}">40.00</td>
+      <td class="timex-approval-box">
+        <span>
+          <input type="radio" id="kishore_kumar_yes" name="kishore_kumar" class="timex-confirmation-radio">
+          <label for="kishore_kumar_yes">Yes</label>
+        </span>
+
+        <span>
+          <input type="radio" id="kishore_kumar_no" name="kishore_kumar" class="timex-confirmation-radio">
+          <label for="kishore_kumar_no">No</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td [ngStyle]="{'text-align': 'left'}">Ying Lee</td>
+      <td [ngStyle]="{'text-align': 'right'}">37.00</td>
+      <td class="timex-approval-box">
+        <span>
+          <input type="radio" id="ying_lee_yes" name="ying_lee" class="timex-confirmation-radio">
+          <label for="ying_lee_yes">Yes</label>
+        </span>
+
+        <span>
+          <input type="radio" id="ying_lee_no" name="ying_lee" class="timex-confirmation-radio">
+          <label for="ying_lee_no">No</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+
+      <td [ngStyle]="{'text-align': 'left'}">Zavadi Johari</td>
+      <td [ngStyle]="{'text-align': 'right'}">37.50</td>
+      <td class="timex-approval-box">
+        <span>
+          <input type="radio" id="zavadi_johari_yes" name="zavadi_johari" class="timex-confirmation-radio">
+          <label for="zavadi_johari_yes">Yes</label>
+        </span>
+
+        <span>
+          <input type="radio" id="zavadi_johari_no" name="zavadi_johari" class="timex-confirmation-radio">
+          <label for="zavadi_johari_no">No</label>
+        </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="timex-horizontally-aligned-container">
+    <button type="button" class="timex-button-primary" (click)="save()">Save</button>
+    <button type="button" class="timex-button-primary" (click)="reset()">Reset</button>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import { HeaderComponent } from './common/header/header.component';
 import { EnterHoursComponent } from './enter-hours/enter-hours.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StaffHoursReportComponent } from './staff-hours-report/staff-hours-report.component';
+import { ApproveTimesheetsComponent } from './approve-timesheets/approve-timesheets.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StaffHoursReportComponent } from './staff-hours-report/staff-hours-repo
     TimesheetListComponent,
     HeaderComponent,
     EnterHoursComponent,
-    StaffHoursReportComponent
+    StaffHoursReportComponent,
+    ApproveTimesheetsComponent
   ],
   imports: [
     BrowserModule,
