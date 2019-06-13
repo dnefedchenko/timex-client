@@ -1,16 +1,16 @@
-<div class="login-form">
+<form [formGroup]="signInForm" class="login-form">
   <h2>Please Sign In</h2>
 
   <div class="login-control">
-    <input class="timex-input" type="text">
+    <input class="timex-input" type="text" formControlName="employeeId">
   </div>
 
   <div class="login-control">
-    <input class="timex-input" type="password">
+    <input class="timex-input" type="password" formControlName="password">
   </div>
 
   <div class="login-control">
     <button type="button" class="timex-button-primary" (click)="login()">SIGN IN</button>
   </div>
-</div>
+</form>
 

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {LoginService} from './service/login.service';
+import {Employee} from '../model/employee.interface';
+import {HttpErrorResponse} from '@angular/common/http';
+import {TIMESHEET_LIST_URL} from '../app.constants';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +12,31 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public signInForm: FormGroup;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private loginService: LoginService) {
 
   }
 
   ngOnInit() {
+    this.buildSignInForm();
+  }
+
+  private buildSignInForm() {
+    this.signInForm = this.formBuilder.group({
+      employeeId: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   public login(): void {
-    this.router.navigateByUrl('/timesheet-list');
+    this.loginService
+      .login(this.signInForm.value)
+      .then(
+         (employee: Employee) => {
+           localStorage.setItem('currentEmployee', JSON.stringify(employee));
+           this.router.navigateByUrl(TIMESHEET_LIST_URL);
+         },
+        (error: HttpErrorResponse) => {});
   }
 }
