@@ -10,7 +10,7 @@
   </div>
 
   <div class="login-control">
-    <button type="button" class="timex-button-primary" (click)="login()">SIGN IN</button>
+    <button type="button" class="timex-button-primary" (click)="login()" [disabled]="signInForm.invalid">SIGN IN</button>
   </div>
 </form>
 

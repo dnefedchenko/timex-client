@@ -8,3 +8,4 @@ export const TIMESHEET_LIST_HEADING = 'Timesheet list';
 export const ENTER_HOURS_HEADING = 'Enter Hours';
 export const STAFF_HOURS_REPORT_HEADING = 'Report: Staff Hours';
 export const APPROVE_TIMESHEETS_HEADING = 'Approve Timesheets';
+export const CURRENT_EMPLOYEE_KEY = 'currentEmployee';

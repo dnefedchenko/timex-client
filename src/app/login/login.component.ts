@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {LoginService} from './service/login.service';
+import {LoginService} from './services/login.service';
 import {Employee} from '../model/employee.interface';
 import {HttpErrorResponse} from '@angular/common/http';
-import {TIMESHEET_LIST_URL} from '../app.constants';
+import {CURRENT_EMPLOYEE_KEY, TIMESHEET_LIST_URL} from '../app.constants';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       .login(this.signInForm.value)
       .then(
          (employee: Employee) => {
-           localStorage.setItem('currentEmployee', JSON.stringify(employee));
+           localStorage.setItem(CURRENT_EMPLOYEE_KEY, JSON.stringify(employee));
            this.router.navigateByUrl(TIMESHEET_LIST_URL);
          },
         (error: HttpErrorResponse) => {});

@@ -12,26 +12,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+
+    <tr *ngFor="let t of employeeTimesheets">
       <td>
-        <a [routerLink]="['/enter-hours', 1234]">January 21, 2019</a>
+        <a [routerLink]="['/enter-hours', t.id]">{{t.periodEnding | date: 'mediumDate'}}</a>
       </td>
-      <td>39.50</td>
-      <td>1234</td>
-    </tr>
-    <tr>
-      <td>
-        <a [routerLink]="['/enter-hours', 1239]">January 14, 2019</a>
-      </td>
-      <td>43.00</td>
-      <td>1239</td>
-    </tr>
-    <tr>
-      <td>
-        <a [routerLink]="['/enter-hours', 1242]">January 07, 2019</a>
-      </td>
-      <td>40.00</td>
-      <td>1242</td>
+      <td>{{t.hoursForWeek}}</td>
+      <td>{{t.id}}</td>
     </tr>
     </tbody>
   </table>

@@ -14,6 +14,7 @@ import { ApproveTimesheetsComponent } from './managment/approve-timesheets/appro
 import { PrintTimesheetComponent } from './employee/print-timesheet/print-timesheet.component';
 import { MarkPaidComponent } from './accounting/mark-paid/mark-paid.component';
 import { OverallSummaryComponent } from './executive/overall-summary/overall-summary.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OverallSummaryComponent } from './executive/overall-summary/overall-sum
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
