@@ -10,7 +10,7 @@ import {
   STAFF_HOURS_REPORT_URL,
   STAFF_HOURS_REPORT_HEADING,
   APPROVE_TIMESHEETS_URL,
-  APPROVE_TIMESHEETS_HEADING
+  APPROVE_TIMESHEETS_HEADING, OVERALL_SUMMARY_URL, OVERALL_SUMMARY_HEADING, MARK_PAID_URL, MARK_PAID_HEADING
 } from './app.constants';
 
 @Component({
@@ -52,6 +52,12 @@ export class AppComponent implements OnInit {
     }
     if (this.urlIncludes(url, APPROVE_TIMESHEETS_URL)) {
       this.headingMessage = APPROVE_TIMESHEETS_HEADING;
+    }
+    if (this.urlIncludes(url, OVERALL_SUMMARY_URL)) {
+      this.headingMessage = OVERALL_SUMMARY_HEADING;
+    }
+    if (this.urlIncludes(url, MARK_PAID_URL)) {
+      this.headingMessage = MARK_PAID_HEADING;
     }
   }
 
