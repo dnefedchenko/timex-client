@@ -13,3 +13,8 @@ export const APPROVE_TIMESHEETS_HEADING = 'Approve Timesheets';
 export const OVERALL_SUMMARY_HEADING = 'Overall Summary';
 export const MARK_PAID_HEADING = 'Mark Paid';
 export const CURRENT_EMPLOYEE_KEY = 'currentEmployee';
+
+export const ROLE_EMPLOYEE = 'ROLE_EMPLOYEE';
+export const ROLE_MANAGER = 'ROLE_MANAGER';
+export const ROLE_EXECUTIVE = 'ROLE_EXECUTIVE';
+export const ROLE_ACCOUNTING = 'ROLE_ACCOUNTING';
