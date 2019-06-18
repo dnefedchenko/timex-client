@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "firstName": "John Smith",
+    "lastName": "Doe",
+    "role": "EMPLOYEE"
+  },
+  {
+    "id": 2,
+    "firstName": "Kishore Kumar",
+    "lastName": "Doe",
+    "role": "EMPLOYEE"
+  },
+  {
+    "id": 3,
+    "firstName": "Ying Lee",
+    "lastName": "Doe",
+    "role": "EMPLOYEE"
+  },
+  {
+    "id": 4,
+    "firstName": "Zavadi Johari",
+    "lastName": "Doe",
+    "role": "EMPLOYEE"
+  }
+]
