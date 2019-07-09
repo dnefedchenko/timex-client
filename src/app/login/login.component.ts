@@ -41,13 +41,13 @@ export class LoginComponent implements OnInit {
   public login(): void {
     this.loginService
       .login(this.signInForm.value)
-      .then(
+      .subscribe(
          (employee: Employee) => {
            this.authService.setCurrentEmployee(employee);
            this.navigateEmployee(employee);
          },
         (error: HttpErrorResponse) => {
-           localStorage.removeItem(CURRENT_EMPLOYEE_KEY);
+           this.authService.clear();
         });
   }
 

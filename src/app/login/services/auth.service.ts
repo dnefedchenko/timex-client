@@ -14,6 +14,10 @@ export class AuthService {
     return JSON.parse(localStorage.getItem(CURRENT_EMPLOYEE_KEY));
   }
 
+  public clear(): void {
+    localStorage.clear();
+  }
+
   public isAuthorized(): boolean {
     return this.getCurrentEmployee() !== null;
   }
