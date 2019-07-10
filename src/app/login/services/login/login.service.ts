@@ -1,8 +1,7 @@
-import {Employee} from '../../model/employee.interface';
-import {Credentials} from '../../model/credentials.interface';
-import {Injectable} from '@angular/core';
+import {Employee} from '../../../model/employee.interface';
+import {Credentials} from '../../../model/credentials.interface';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Promise} from 'q';
 import {Observable, of} from 'rxjs';
 
 
@@ -12,7 +11,7 @@ import {Observable, of} from 'rxjs';
 export class LoginService {
   private employees: Employee[];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(@Inject('apiUrl') private apiUrl: string, private httpClient: HttpClient) {
     this.employees = [
       {
         id: 1,
@@ -68,7 +67,9 @@ export class LoginService {
   }
 
   public login(credentials: Credentials): Observable<Employee> {
-    const employee = this.employees.find((e: Employee) => e.email === credentials.employeeId);
-    return of(employee);
+    return this.httpClient.post<Employee>(`${this.apiUrl}/auth/login`, credentials);
+
+/*    const employee = this.employees.find((e: Employee) => e.email === credentials.employeeId);
+    return of(employee);*/
   }
 }

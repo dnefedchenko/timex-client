@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {LoginService} from './services/login.service';
+import {LoginService} from './services/login/login.service';
 import {Employee} from '../model/employee.interface';
 import {HttpErrorResponse} from '@angular/common/http';
 import {
@@ -12,7 +12,7 @@ import {
   STAFF_HOURS_REPORT_URL,
   TIMESHEET_LIST_URL
 } from '../app.constants';
-import {AuthService} from './services/auth.service';
+import {AuthService} from './services/auth/auth.service';
 
 @Component({
   selector: 'app-login',

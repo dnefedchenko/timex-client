@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {CURRENT_EMPLOYEE_KEY, ROLE_ACCOUNTING, ROLE_EMPLOYEE, ROLE_EXECUTIVE, ROLE_MANAGER} from '../../app.constants';
-import {Employee} from '../../model/employee.interface';
+import {CURRENT_EMPLOYEE_KEY, ROLE_ACCOUNTING, ROLE_EMPLOYEE, ROLE_EXECUTIVE, ROLE_MANAGER} from '../../../app.constants';
+import {Employee} from '../../../model/employee.interface';
 
 @Injectable({
   providedIn: 'root'

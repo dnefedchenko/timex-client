@@ -15,6 +15,7 @@ import { PrintTimesheetComponent } from './employee/print-timesheet/print-timesh
 import { MarkPaidComponent } from './accounting/mark-paid/mark-paid.component';
 import { OverallSummaryComponent } from './executive/overall-summary/overall-summary.component';
 import {HttpClientModule} from '@angular/common/http';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'apiUrl', useValue: environment.apiUrl}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

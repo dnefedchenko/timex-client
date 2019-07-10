@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EnterHoursComponent } from './enter-hours.component';
 
-describe('EnterHoursComponent', () => {
+xdescribe('EnterHoursComponent', () => {
   let component: EnterHoursComponent;
   let fixture: ComponentFixture<EnterHoursComponent>;
 

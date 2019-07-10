@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
 import { Observable } from 'rxjs';
-import {AuthService} from './login/services/auth.service';
+import {AuthService} from './login/services/auth/auth.service';
 import {
   APPROVE_TIMESHEETS_URL,
   ENTER_HOURS_URL,

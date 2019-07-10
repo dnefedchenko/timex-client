@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OverallSummaryComponent } from './overall-summary.component';
 
-describe('OverallSummaryComponent', () => {
+xdescribe('OverallSummaryComponent', () => {
   let component: OverallSummaryComponent;
   let fixture: ComponentFixture<OverallSummaryComponent>;
 
