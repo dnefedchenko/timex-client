@@ -8,33 +8,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">John Smith</td>
-      <td [ngStyle]="{'text-align': 'left'}">Staff</td>
-      <td [ngStyle]="{'text-align': 'right'}">65.00</td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Kishore Kumar</td>
-      <td [ngStyle]="{'text-align': 'left'}">Management</td>
-      <td [ngStyle]="{'text-align': 'right'}">40.00</td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Ying Lee</td>
-      <td [ngStyle]="{'text-align': 'left'}">Staff</td>
-      <td [ngStyle]="{'text-align': 'right'}">37.00</td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Zavadi Johari</td>
-      <td [ngStyle]="{'text-align': 'left'}">Staff</td>
-      <td [ngStyle]="{'text-align': 'right'}">37.50</td>
+    <tr *ngFor="let report of reports">
+      <td [ngStyle]="{'text-align': 'left'}">{{report.employeeName}}</td>
+      <td [ngStyle]="{'text-align': 'left'}">{{report.departmentType}}</td>
+      <td [ngStyle]="{'text-align': 'right'}">{{report.hoursForWeek}}</td>
     </tr>
     <tr class="timex-average">
       <td colspan="2">Average Hours</td>
-      <td>39.00</td>
+      <td>{{averageHours}}</td>
     </tr>
     <tr class="timex-total">
       <td colspan="2">TOTAL</td>
-      <td>177.50</td>
+      <td>{{totalHours}}</td>
     </tr>
     </tbody>
   </table>

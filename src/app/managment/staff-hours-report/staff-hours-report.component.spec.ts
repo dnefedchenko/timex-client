@@ -6,12 +6,40 @@ import {ApproveTimesheetsComponent} from '../approve-timesheets/approve-timeshee
 import SpyObj = jasmine.SpyObj;
 import {Router} from '@angular/router';
 import {APPROVE_TIMESHEETS_URL} from '../../app.constants';
+import {ManagementService} from '../services/management.service';
+import {of} from 'rxjs';
+import {StaffHoursReport} from '../../model/staff-hours.report.interface';
 
 describe('StaffHoursReportComponent', () => {
   let testee: StaffHoursReportComponent;
   let fixture: ComponentFixture<StaffHoursReportComponent>;
 
   let routerSpy: SpyObj<Router> = jasmine.createSpyObj('Router', ['navigateByUrl']);
+  let managementServiceSpy: SpyObj<ManagementService> =
+    jasmine.createSpyObj('ManagementService', ['loadCurrentWeekReports']);
+
+  const reports: StaffHoursReport[] = [
+    {
+      employeeName: 'John Smith',
+      departmentType: 'Staff',
+      hoursForWeek: 65.0
+    },
+    {
+      employeeName: 'Kishore Kumar',
+      departmentType: 'Management',
+      hoursForWeek: 40.0
+    },
+    {
+      employeeName: 'Ying Lee',
+      departmentType: 'Staff',
+      hoursForWeek: 37.0
+    },
+    {
+      employeeName: 'Zavadi Johari',
+      departmentType: 'QA',
+      hoursForWeek: 37.5
+    }
+  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,20 +50,27 @@ describe('StaffHoursReportComponent', () => {
         ])
       ],
       providers: [
-        { provide: Router, useValue: routerSpy }
+        { provide: Router, useValue: routerSpy },
+        { provide: ManagementService, useValue: managementServiceSpy }
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
+    managementServiceSpy.loadCurrentWeekReports.and.returnValue(of(reports));
+
     fixture = TestBed.createComponent(StaffHoursReportComponent);
     testee = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(testee).toBeTruthy();
+  it('should check component initialized correctly', () => {
+    expect(testee).toBeDefined();
+    expect(managementServiceSpy.loadCurrentWeekReports.calls.count()).toBe(1);
+    expect(testee.averageHours).toBe(44.88);
+    expect(testee.totalHours).toBe(179.5);
+    expect(testee.reports).toEqual(reports);
   });
 
   it('should navigate to timesheets apporval page', () => {
