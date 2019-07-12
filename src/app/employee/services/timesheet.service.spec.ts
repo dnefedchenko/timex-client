@@ -4,8 +4,12 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {Timesheet} from '../../model/timesheet.interface';
 import {TimesheetInfo} from '../../model/timesheet-info.interface';
 import {TimesheetService} from './timesheet.service';
+import {environment} from '../../../environments/environment';
 
 describe('TimesheetService Unit Test', () => {
+  let testee: TimesheetService;
+
+  let apiUrl;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
 
@@ -37,36 +41,53 @@ describe('TimesheetService Unit Test', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
+      providers: [
+        TimesheetService,
+        { provide: 'apiUrl', useValue: environment.apiUrl }
+      ]
     });
 
+    testee = TestBed.get(TimesheetService);
+    apiUrl = TestBed.get('apiUrl');
     httpClient = TestBed.get(HttpClient);
     httpTestingController = TestBed.get(HttpTestingController);
   });
 
   it('should get employee timesheets', () => {
-    httpClient
-      .get<Timesheet[]>(`/employee/1/timesheets`)
+    testee
+      .getEmployeeTimesheets(timesheets[0].employeeId)
       .subscribe((response: Timesheet[]) => {
         expect(response).toEqual(timesheets);
       });
 
-    const performedRequest = httpTestingController.expectOne('/employee/1/timesheets');
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/assets/timesheets.json`);
     expect(performedRequest.request.method).toEqual('GET');
-
     performedRequest.flush(timesheets);
   });
 
   it('should get timesheet info', () => {
-    httpClient
-      .get<TimesheetInfo>('timesheet-info/1')
+    testee
+      .getTimesheetInfo(timesheetInfo.id)
       .subscribe((info: TimesheetInfo) => {
         expect(info).toEqual(timesheetInfo);
       });
 
-    const performedRequest = httpTestingController.expectOne('timesheet-info/1');
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheet-info/${timesheetInfo.id}`);
     expect(performedRequest.request.method).toEqual('GET');
     performedRequest.flush(timesheetInfo);
+  });
+
+  it('should save time report', () => {
+    testee
+      .saveTimeReport(timesheetInfo)
+      .subscribe((id: number) => {
+        expect(id).toBe(1);
+      });
+
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheet-info`);
+    expect(performedRequest.request.method).toEqual('POST');
+    performedRequest.flush(1);
   });
 
   afterEach(() => {
