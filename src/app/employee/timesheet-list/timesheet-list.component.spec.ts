@@ -5,7 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import SpyObj = jasmine.SpyObj;
 import {AuthService} from '../../login/services/auth/auth.service';
-import {TimesheetService} from '../services/timesheet.service';
+import {EmployeeService} from '../services/employee.service';
 import {Employee} from '../../model/employee.interface';
 import {of} from 'rxjs';
 import {Timesheet} from '../../model/timesheet.interface';
@@ -15,7 +15,7 @@ describe('TimesheetListComponent', () => {
   let fixture: ComponentFixture<TimesheetListComponent>;
 
   const authServiceSpy: SpyObj<AuthService> = jasmine.createSpyObj('AuthService', ['getCurrentEmployee']);
-  const timesheetServiceSpy: SpyObj<TimesheetService> = jasmine.createSpyObj('TimesheetService', ['getEmployeeTimesheets']);
+  const timesheetServiceSpy: SpyObj<EmployeeService> = jasmine.createSpyObj('EmployeeService', ['getEmployeeTimesheets']);
 
   const johnDoe: Employee = {
     id: 1,
@@ -46,7 +46,7 @@ describe('TimesheetListComponent', () => {
       declarations: [ TimesheetListComponent ],
       providers: [
         { provide: AuthService, useValue: authServiceSpy },
-        { provide: TimesheetService, useValue: timesheetServiceSpy }
+        { provide: EmployeeService, useValue: timesheetServiceSpy }
       ]
     })
     .compileComponents();

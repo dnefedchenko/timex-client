@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {TIMESHEET_LIST_URL} from '../../app.constants';
-import {TimesheetService} from '../services/timesheet.service';
+import {EmployeeService} from '../services/employee.service';
 import {TimesheetInfo} from '../../model/timesheet-info.interface';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -19,7 +19,7 @@ export class EnterHoursComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder,
-              private timesheetService: TimesheetService) { }
+              private timesheetService: EmployeeService) { }
 
   ngOnInit() {
     this.extractTimesheetId();

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Timesheet} from '../../model/timesheet.interface';
-import {TimesheetService} from '../services/timesheet.service';
+import {EmployeeService} from '../services/employee.service';
 import {AuthService} from '../../login/services/auth/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ import {AuthService} from '../../login/services/auth/auth.service';
 export class TimesheetListComponent implements OnInit {
   public employeeTimesheets: Timesheet[];
 
-  constructor(private authService: AuthService, private timesheetService: TimesheetService) { }
+  constructor(private authService: AuthService, private timesheetService: EmployeeService) { }
 
   ngOnInit() {
     this.getEmployeeTimesheets();

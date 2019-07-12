@@ -3,11 +3,11 @@ import {TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Timesheet} from '../../model/timesheet.interface';
 import {TimesheetInfo} from '../../model/timesheet-info.interface';
-import {TimesheetService} from './timesheet.service';
+import {EmployeeService} from './employee.service';
 import {environment} from '../../../environments/environment';
 
-describe('TimesheetService Unit Test', () => {
-  let testee: TimesheetService;
+describe('EmployeeService Unit Test', () => {
+  let testee: EmployeeService;
 
   let apiUrl;
   let httpClient: HttpClient;
@@ -43,12 +43,12 @@ describe('TimesheetService Unit Test', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        TimesheetService,
+        EmployeeService,
         { provide: 'apiUrl', useValue: environment.apiUrl }
       ]
     });
 
-    testee = TestBed.get(TimesheetService);
+    testee = TestBed.get(EmployeeService);
     apiUrl = TestBed.get('apiUrl');
     httpClient = TestBed.get(HttpClient);
     httpTestingController = TestBed.get(HttpTestingController);

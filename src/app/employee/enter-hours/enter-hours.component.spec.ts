@@ -5,7 +5,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TimesheetListComponent} from '../timesheet-list/timesheet-list.component';
 import SpyObj = jasmine.SpyObj;
-import {TimesheetService} from '../services/timesheet.service';
+import {EmployeeService} from '../services/employee.service';
 import {TimesheetInfo} from '../../model/timesheet-info.interface';
 import {of, throwError} from 'rxjs';
 import {ActivatedRoute, convertToParamMap, Router} from '@angular/router';
@@ -15,8 +15,8 @@ describe('EnterHoursComponent', () => {
   let testee: EnterHoursComponent;
   let fixture: ComponentFixture<EnterHoursComponent>;
 
-  const timesheetServiceSpy: SpyObj<TimesheetService> = jasmine
-    .createSpyObj('TimesheetService', ['getTimesheetInfo', 'saveTimeReport']);
+  const timesheetServiceSpy: SpyObj<EmployeeService> = jasmine
+    .createSpyObj('EmployeeService', ['getTimesheetInfo', 'saveTimeReport']);
   const routerSpy: SpyObj<Router> = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
   const timesheetId = '1';
@@ -52,7 +52,7 @@ describe('EnterHoursComponent', () => {
       ],
       declarations: [ EnterHoursComponent, TimesheetListComponent ],
       providers: [
-        { provide: TimesheetService, useValue: timesheetServiceSpy },
+        { provide: EmployeeService, useValue: timesheetServiceSpy },
         { provide: ActivatedRoute, useValue: activatedRouteStub },
         { provide: Router, useValue: routerSpy }
       ]

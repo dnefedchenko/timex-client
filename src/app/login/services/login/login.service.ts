@@ -67,9 +67,9 @@ export class LoginService {
   }
 
   public login(credentials: Credentials): Observable<Employee> {
-    return this.httpClient.post<Employee>(`${this.apiUrl}/auth/login`, credentials);
+//    return this.httpClient.post<Employee>(`${this.apiUrl}/auth/login`, credentials);
 
-/*    const employee = this.employees.find((e: Employee) => e.email === credentials.employeeId);
-    return of(employee);*/
+    const employee = this.employees.find((e: Employee) => e.email === credentials.employeeId);
+    return of(employee);
   }
 }

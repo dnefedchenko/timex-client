@@ -18,7 +18,7 @@ export class StaffHoursReportComponent implements OnInit {
     console.log('Printing happens here');
   }
 
-  public approve(): void {
+  public goToApprovalPage(): void {
     this.router.navigateByUrl(APPROVE_TIMESHEETS_URL);
   }
 }

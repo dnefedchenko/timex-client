@@ -7,7 +7,7 @@ import {TimesheetInfo} from '../../model/timesheet-info.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class TimesheetService {
+export class EmployeeService {
   constructor(@Inject('apiUrl') private apiUrl: string, private httpClient: HttpClient) {}
 
   public getEmployeeTimesheets(employeeId: number): Observable<Timesheet[]> {
