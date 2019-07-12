@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrintTimesheetComponent } from './print-timesheet.component';
 
-xdescribe('PrintTimesheetComponent', () => {
+describe('PrintTimesheetComponent', () => {
   let component: PrintTimesheetComponent;
   let fixture: ComponentFixture<PrintTimesheetComponent>;
 

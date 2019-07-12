@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {TIMESHEET_LIST_URL} from '../../app.constants';
+import {TimesheetService} from '../services/timesheet.service';
+import {TimesheetInfo} from '../../model/timesheet-info.interface';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-timesheet',
@@ -9,13 +12,14 @@ import {TIMESHEET_LIST_URL} from '../../app.constants';
   styleUrls: ['./enter-hours.component.scss']
 })
 export class EnterHoursComponent implements OnInit {
-  private timesheetId: string;
+  public timesheetId: string;
   public timeTrackingForm: FormGroup;
   public pageLoadingCompleted = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private timesheetService: TimesheetService) { }
 
   ngOnInit() {
     this.extractTimesheetId();
@@ -36,27 +40,37 @@ export class EnterHoursComponent implements OnInit {
   }
 
   private loadTimesheet() {
-    console.log('existing timesheet is loaded here');
-    this.initTimeTrackingForm();
+    this.timesheetService
+      .getTimesheetInfo(+this.timesheetId)
+      .subscribe((info: TimesheetInfo) => {
+        this.initTimeTrackingForm(info);
+      });
   }
 
-  private initTimeTrackingForm() {
+  private initTimeTrackingForm(timesheetInfo?: TimesheetInfo) {
     this.timeTrackingForm = this.formBuilder.group({
-      department: [''],
-      monday: ['4.00'],
-      tuesday: ['8.00'],
-      wednesday: ['4.00'],
-      thursday: ['0.00'],
-      friday: ['0.00'],
-      saturday: ['0.00'],
-      sunday: ['0.00']
+      departmentName: [timesheetInfo ? timesheetInfo.departmentName : ''],
+      mondayHours: [timesheetInfo ? timesheetInfo.mondayHours : '0.00'],
+      tuesdayHours: [timesheetInfo ? timesheetInfo.tuesdayHours : '0.00'],
+      wednesdayHours: [timesheetInfo ? timesheetInfo.wednesdayHours : '0.00'],
+      thursdayHours: [timesheetInfo ? timesheetInfo.thursdayHours : '0.00'],
+      fridayHours: [timesheetInfo ? timesheetInfo.fridayHours : '0.00'],
+      saturdayHours: [timesheetInfo ? timesheetInfo.saturdayHours : '0.00'],
+      sundayHours: [timesheetInfo ? timesheetInfo.sundayHours : '0.00']
     });
     this.pageLoadingCompleted = true;
   }
 
   public saveTimeReport(): void {
-    console.log(`Saving ${JSON.stringify(this.timeTrackingForm.value)}`);
-    this.router.navigateByUrl(TIMESHEET_LIST_URL);
+    this.timesheetService
+      .saveTimeReport(this.timeTrackingForm.value as TimesheetInfo)
+      .subscribe(
+        (id: number) => {
+          this.router.navigateByUrl(TIMESHEET_LIST_URL);
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error.message);
+        });
   }
 
   public cancelTimeRegistration(): void {

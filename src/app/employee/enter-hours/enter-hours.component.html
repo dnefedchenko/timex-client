@@ -18,7 +18,7 @@
     <tbody [formGroup]="timeTrackingForm">
       <tr>
         <td>
-          <select class="timex-select" formControlName="department">
+          <select class="timex-select" formControlName="departmentName">
             <option>Information Technology</option>
             <option>Service Desk</option>
             <option>Sales</option>
@@ -27,25 +27,25 @@
           </select>
         </td>
         <td>
-          <input formControlName="monday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="mondayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>
-          <input formControlName="tuesday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="tuesdayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>
-          <input formControlName="wednesday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="wednesdayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>
-          <input formControlName="thursday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="thursdayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>
-          <input formControlName="friday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="fridayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>
-          <input formControlName="saturday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="saturdayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>
-          <input formControlName="sunday" type="number" class="timex-input timex-enter-hour-cell">
+          <input formControlName="sundayHours" type="number" class="timex-input timex-enter-hour-cell">
         </td>
         <td>{{totalHours}}</td>
       </tr>

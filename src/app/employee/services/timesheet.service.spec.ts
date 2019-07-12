@@ -2,6 +2,8 @@ import {HttpClient} from '@angular/common/http';
 import {TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Timesheet} from '../../model/timesheet.interface';
+import {TimesheetInfo} from '../../model/timesheet-info.interface';
+import {TimesheetService} from './timesheet.service';
 
 describe('TimesheetService Unit Test', () => {
   let httpClient: HttpClient;
@@ -18,6 +20,20 @@ describe('TimesheetService Unit Test', () => {
       paid: true
     }
   ];
+
+  const timesheetInfo: TimesheetInfo = {
+    id: 1,
+    departmentId: 3,
+    departmentName: 'IT',
+    mondayHours: 8,
+    tuesdayHours: 8,
+    wednesdayHours: 8,
+    thursdayHours: 8,
+    fridayHours: 8,
+    saturdayHours: 8,
+    sundayHours: 8,
+    totalHours: 40
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -39,6 +55,18 @@ describe('TimesheetService Unit Test', () => {
     expect(performedRequest.request.method).toEqual('GET');
 
     performedRequest.flush(timesheets);
+  });
+
+  it('should get timesheet info', () => {
+    httpClient
+      .get<TimesheetInfo>('timesheet-info/1')
+      .subscribe((info: TimesheetInfo) => {
+        expect(info).toEqual(timesheetInfo);
+      });
+
+    const performedRequest = httpTestingController.expectOne('timesheet-info/1');
+    expect(performedRequest.request.method).toEqual('GET');
+    performedRequest.flush(timesheetInfo);
   });
 
   afterEach(() => {
