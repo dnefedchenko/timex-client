@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Timesheet} from '../../model/timesheet.interface';
@@ -7,10 +7,9 @@ import {Timesheet} from '../../model/timesheet.interface';
   providedIn: 'root'
 })
 export class TimesheetService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(@Inject('apiUrl') private apiUrl: string, private httpClient: HttpClient) {}
 
   public getEmployeeTimesheets(employeeId: number): Observable<Timesheet[]> {
-    console.log(`Retrieving timesheets for employee id ${employeeId}`);
-    return this.httpClient.get<Timesheet[]>('/assets/timesheets.json');
+    return this.httpClient.get<Timesheet[]>(`${this.apiUrl}/assets/timesheets.json`);
   }
 }

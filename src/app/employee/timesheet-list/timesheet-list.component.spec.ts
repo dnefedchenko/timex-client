@@ -28,7 +28,7 @@ describe('TimesheetListComponent', () => {
   const timesheets: Timesheet[] = [
     {
       id: 1,
-      employeeId: 'john.doe@mail.com',
+      employeeId: 123,
       employeeName: 'John',
       hoursForWeek: 40,
       periodEnding: '12-07-2019',

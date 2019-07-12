@@ -1,6 +1,6 @@
 export interface Timesheet {
   id: number;
-  employeeId: string;
+  employeeId: number;
   employeeName: string;
   hoursForWeek: number;
   approved: boolean;
