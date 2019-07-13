@@ -7,13 +7,12 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './common/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StaffHoursReportComponent } from './managment/staff-hours-report/staff-hours-report.component';
-import { ApproveTimesheetsComponent } from './managment/approve-timesheets/approve-timesheets.component';
 import { MarkPaidComponent } from './accounting/mark-paid/mark-paid.component';
 import { OverallSummaryComponent } from './executive/overall-summary/overall-summary.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { AppEmployeeModule } from './employee/app-employee.module';
+import {AppManagementModule} from './managment/app-management.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,6 @@ import { AppEmployeeModule } from './employee/app-employee.module';
     LoginComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    StaffHoursReportComponent,
-    ApproveTimesheetsComponent,
     MarkPaidComponent,
     OverallSummaryComponent
   ],
@@ -31,7 +28,8 @@ import { AppEmployeeModule } from './employee/app-employee.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppEmployeeModule
+    AppEmployeeModule,
+    AppManagementModule
   ],
   providers: [
     {provide: 'apiUrl', useValue: environment.apiUrl}
