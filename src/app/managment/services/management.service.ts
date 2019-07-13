@@ -10,28 +10,28 @@ export class ManagementService {
   private reports: StaffHoursReport[] = [
     {
       employeeName: 'John Smith',
-      departmentType: 'Staff',
+      departmentName: 'Staff',
       hoursForWeek: 65.0,
       timesheetId: 1,
       approved: false
     },
     {
       employeeName: 'Kishore Kumar',
-      departmentType: 'Management',
+      departmentName: 'Management',
       hoursForWeek: 40.0,
       timesheetId: 1,
       approved: false
     },
     {
       employeeName: 'Ying Lee',
-      departmentType: 'Staff',
+      departmentName: 'Staff',
       hoursForWeek: 37.0,
       timesheetId: 1,
       approved: false
     },
     {
       employeeName: 'Zavadi Johari',
-      departmentType: 'QA',
+      departmentName: 'QA',
       hoursForWeek: 37.5,
       timesheetId: 1,
       approved: false
