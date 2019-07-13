@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import SpyObj = jasmine.SpyObj;
 import {AuthService} from '../../login/services/auth/auth.service';
 import {EmployeeService} from '../services/employee.service';
-import {Employee} from '../../model/employee.interface';
+import {Employee} from '../../model/auth/employee.interface';
 import {of} from 'rxjs';
 import {Timesheet} from '../../model/employee/timesheet.interface';
 

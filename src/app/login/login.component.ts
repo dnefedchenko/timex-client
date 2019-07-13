@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from './services/login/login.service';
-import {Employee} from '../model/employee.interface';
+import {Employee} from '../model/auth/employee.interface';
 import {HttpErrorResponse} from '@angular/common/http';
 import {
   CURRENT_EMPLOYEE_KEY,

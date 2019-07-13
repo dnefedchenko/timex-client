@@ -1,6 +1,6 @@
 import {AuthService} from './auth.service';
 import {CURRENT_EMPLOYEE_KEY, ROLE_ACCOUNTING, ROLE_EMPLOYEE, ROLE_EXECUTIVE, ROLE_MANAGER} from '../../../app.constants';
-import {Employee} from '../../../model/employee.interface';
+import {Employee} from '../../../model/auth/employee.interface';
 
 describe('AuthService unit test', () => {
   let testee: AuthService;

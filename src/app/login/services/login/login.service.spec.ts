@@ -1,8 +1,8 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {TestBed} from '@angular/core/testing';
-import {Credentials} from '../../../model/credentials.interface';
-import {Employee} from '../../../model/employee.interface';
+import {Credentials} from '../../../model/auth/credentials.interface';
+import {Employee} from '../../../model/auth/employee.interface';
 
 describe('LoginService test spec', () => {
   let httpClient: HttpClient;

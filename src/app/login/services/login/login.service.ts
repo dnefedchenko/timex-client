@@ -1,5 +1,5 @@
-import {Employee} from '../../../model/employee.interface';
-import {Credentials} from '../../../model/credentials.interface';
+import {Employee} from '../../../model/auth/employee.interface';
+import {Credentials} from '../../../model/auth/credentials.interface';
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';

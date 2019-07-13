@@ -4,7 +4,7 @@ import {LoginComponent} from './login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginService} from './services/login/login.service';
-import {Employee} from '../model/employee.interface';
+import {Employee} from '../model/auth/employee.interface';
 import SpyObj = jasmine.SpyObj;
 import {RouterTestingModule} from '@angular/router/testing';
 import {AuthService} from './services/auth/auth.service';
