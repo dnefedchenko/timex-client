@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 import {APPROVE_TIMESHEETS_URL} from '../../app.constants';
 import {ManagementService} from '../services/management.service';
 import {of} from 'rxjs';
-import {StaffHoursReport} from '../../model/staff-hours.report.interface';
+import {StaffHoursReport} from '../../model/manager/staff-hours.report.interface';
 
 describe('StaffHoursReportComponent', () => {
   let testee: StaffHoursReportComponent;
@@ -22,22 +22,30 @@ describe('StaffHoursReportComponent', () => {
     {
       employeeName: 'John Smith',
       departmentType: 'Staff',
-      hoursForWeek: 65.0
+      hoursForWeek: 65.0,
+      timesheetId: 1,
+      approved: false
     },
     {
       employeeName: 'Kishore Kumar',
       departmentType: 'Management',
-      hoursForWeek: 40.0
+      hoursForWeek: 40.0,
+      timesheetId: 1,
+      approved: false
     },
     {
       employeeName: 'Ying Lee',
       departmentType: 'Staff',
-      hoursForWeek: 37.0
+      hoursForWeek: 37.0,
+      timesheetId: 1,
+      approved: false
     },
     {
       employeeName: 'Zavadi Johari',
       departmentType: 'QA',
-      hoursForWeek: 37.5
+      hoursForWeek: 37.5,
+      timesheetId: 1,
+      approved: false
     }
   ];
 

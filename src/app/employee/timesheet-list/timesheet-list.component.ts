@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Timesheet} from '../../model/timesheet.interface';
+import {Timesheet} from '../../model/employee/timesheet.interface';
 import {EmployeeService} from '../services/employee.service';
 import {AuthService} from '../../login/services/auth/auth.service';
 

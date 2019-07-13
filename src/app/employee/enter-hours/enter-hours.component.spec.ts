@@ -6,17 +6,18 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {TimesheetListComponent} from '../timesheet-list/timesheet-list.component';
 import SpyObj = jasmine.SpyObj;
 import {EmployeeService} from '../services/employee.service';
-import {TimesheetInfo} from '../../model/timesheet-info.interface';
+import {TimesheetInfo} from '../../model/employee/timesheet-info.interface';
 import {of, throwError} from 'rxjs';
 import {ActivatedRoute, convertToParamMap, Router} from '@angular/router';
 import {TIMESHEET_LIST_URL} from '../../app.constants';
+import {Timesheet} from '../../model/employee/timesheet.interface';
 
 describe('EnterHoursComponent', () => {
   let testee: EnterHoursComponent;
   let fixture: ComponentFixture<EnterHoursComponent>;
 
   const timesheetServiceSpy: SpyObj<EmployeeService> = jasmine
-    .createSpyObj('EmployeeService', ['getTimesheetInfo', 'saveTimeReport']);
+    .createSpyObj('EmployeeService', ['getTimesheet', 'saveTimeReport']);
   const routerSpy: SpyObj<Router> = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
   const timesheetId = '1';
@@ -30,8 +31,10 @@ describe('EnterHoursComponent', () => {
     }
   };
 
-  const timesheetInfo: TimesheetInfo = {
+  const timesheet: Timesheet = {
     id: 1,
+    employeeId: 1,
+    employeeName: 'John Doe',
     departmentId: 3,
     departmentName: 'IT',
     mondayHours: 8,
@@ -41,7 +44,8 @@ describe('EnterHoursComponent', () => {
     fridayHours: 8,
     saturdayHours: 8,
     sundayHours: 8,
-    totalHours: 40
+    totalHours: 40,
+    periodEnding: '12-07-2019'
   };
 
   beforeEach(async(() => {
@@ -61,7 +65,7 @@ describe('EnterHoursComponent', () => {
   }));
 
   beforeEach(() => {
-    timesheetServiceSpy.getTimesheetInfo.and.returnValue(of(timesheetInfo));
+    timesheetServiceSpy.getTimesheet.and.returnValue(of(timesheet));
     timesheetServiceSpy.saveTimeReport.and.returnValue(of(1));
 
     fixture = TestBed.createComponent(EnterHoursComponent);
@@ -78,13 +82,13 @@ describe('EnterHoursComponent', () => {
 
   it('should init time tracking form correctly for existing timesheet', () => {
     expect(testee.timesheetId).toEqual(timesheetId);
-    expect(timesheetServiceSpy.getTimesheetInfo).toHaveBeenCalledWith(+timesheetId);
-    expect(testee.timeTrackingForm.get('departmentName').value).toEqual(timesheetInfo.departmentName);
-    expect(testee.timeTrackingForm.get('mondayHours').value).toEqual(timesheetInfo.mondayHours);
-    expect(testee.timeTrackingForm.get('tuesdayHours').value).toEqual(timesheetInfo.tuesdayHours);
-    expect(testee.timeTrackingForm.get('wednesdayHours').value).toEqual(timesheetInfo.wednesdayHours);
-    expect(testee.timeTrackingForm.get('thursdayHours').value).toEqual(timesheetInfo.thursdayHours);
-    expect(testee.timeTrackingForm.get('fridayHours').value).toEqual(timesheetInfo.fridayHours);
+    expect(timesheetServiceSpy.getTimesheet).toHaveBeenCalledWith(+timesheetId);
+    expect(testee.timeTrackingForm.get('departmentName').value).toEqual(timesheet.departmentName);
+    expect(testee.timeTrackingForm.get('mondayHours').value).toEqual(timesheet.mondayHours);
+    expect(testee.timeTrackingForm.get('tuesdayHours').value).toEqual(timesheet.tuesdayHours);
+    expect(testee.timeTrackingForm.get('wednesdayHours').value).toEqual(timesheet.wednesdayHours);
+    expect(testee.timeTrackingForm.get('thursdayHours').value).toEqual(timesheet.thursdayHours);
+    expect(testee.timeTrackingForm.get('fridayHours').value).toEqual(timesheet.fridayHours);
     expect(testee.pageLoadingCompleted).toBeTruthy();
   });
 
@@ -115,7 +119,7 @@ describe('EnterHoursComponent', () => {
 
   afterEach(() => {
     routerSpy.navigateByUrl.calls.reset();
-    timesheetServiceSpy.getTimesheetInfo.calls.reset();
+    timesheetServiceSpy.getTimesheet.calls.reset();
     timesheetServiceSpy.saveTimeReport.calls.reset();
   });
 });

@@ -8,7 +8,7 @@ import {AuthService} from '../../login/services/auth/auth.service';
 import {EmployeeService} from '../services/employee.service';
 import {Employee} from '../../model/employee.interface';
 import {of} from 'rxjs';
-import {Timesheet} from '../../model/timesheet.interface';
+import {Timesheet} from '../../model/employee/timesheet.interface';
 
 describe('TimesheetListComponent', () => {
   let component: TimesheetListComponent;
@@ -25,17 +25,24 @@ describe('TimesheetListComponent', () => {
     role: 'ROLE_EMPLOYEE'
   };
 
-  const timesheets: Timesheet[] = [
-    {
-      id: 1,
-      employeeId: 123,
-      employeeName: 'John',
-      hoursForWeek: 40,
-      periodEnding: '12-07-2019',
-      approved: true,
-      paid: true
-    }
-  ];
+  const timesheet: Timesheet = {
+    id: 1,
+    employeeId: 1,
+    employeeName: 'John Doe',
+    departmentId: 3,
+    departmentName: 'IT',
+    mondayHours: 8,
+    tuesdayHours: 8,
+    wednesdayHours: 8,
+    thursdayHours: 8,
+    fridayHours: 8,
+    saturdayHours: 8,
+    sundayHours: 8,
+    totalHours: 40,
+    periodEnding: '12-07-2019'
+  };
+
+  const timesheets: Timesheet[] = [timesheet];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

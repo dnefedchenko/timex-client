@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {APPROVE_TIMESHEETS_URL} from '../../app.constants';
-import {StaffHoursReport} from '../../model/staff-hours.report.interface';
+import {StaffHoursReport} from '../../model/manager/staff-hours.report.interface';
 import {ManagementService} from '../services/management.service';
 import {HttpErrorResponse} from '@angular/common/http';
 

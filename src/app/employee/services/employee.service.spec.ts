@@ -1,8 +1,8 @@
 import {HttpClient} from '@angular/common/http';
 import {TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {Timesheet} from '../../model/timesheet.interface';
-import {TimesheetInfo} from '../../model/timesheet-info.interface';
+import {Timesheet} from '../../model/employee/timesheet.interface';
+import {TimesheetInfo} from '../../model/employee/timesheet-info.interface';
 import {EmployeeService} from './employee.service';
 import {environment} from '../../../environments/environment';
 
@@ -13,20 +13,10 @@ describe('EmployeeService Unit Test', () => {
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
 
-  const timesheets: Timesheet[] = [
-    {
-      id: 1,
-      employeeId: 123,
-      employeeName: 'John',
-      hoursForWeek: 40,
-      periodEnding: '12-07-2019',
-      approved: true,
-      paid: true
-    }
-  ];
-
-  const timesheetInfo: TimesheetInfo = {
+  const timesheet: Timesheet = {
     id: 1,
+    employeeId: 1,
+    employeeName: 'John Doe',
     departmentId: 3,
     departmentName: 'IT',
     mondayHours: 8,
@@ -36,8 +26,11 @@ describe('EmployeeService Unit Test', () => {
     fridayHours: 8,
     saturdayHours: 8,
     sundayHours: 8,
-    totalHours: 40
+    totalHours: 40,
+    periodEnding: '12-07-2019'
   };
+
+  const timesheets: Timesheet[] = [timesheet];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -66,21 +59,21 @@ describe('EmployeeService Unit Test', () => {
     performedRequest.flush(timesheets);
   });
 
-  it('should get timesheet info', () => {
+  it('should get timesheet', () => {
     testee
-      .getTimesheetInfo(timesheetInfo.id)
-      .subscribe((info: TimesheetInfo) => {
-        expect(info).toEqual(timesheetInfo);
+      .getTimesheet(timesheet.id)
+      .subscribe((response: Timesheet) => {
+        expect(timesheet).toEqual(response);
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheet-info/${timesheetInfo.id}`);
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheet-info/${timesheet.id}`);
     expect(performedRequest.request.method).toEqual('GET');
-    performedRequest.flush(timesheetInfo);
+    performedRequest.flush(timesheet);
   });
 
   it('should save time report', () => {
     testee
-      .saveTimeReport(timesheetInfo)
+      .saveTimeReport(timesheet)
       .subscribe((id: number) => {
         expect(id).toBe(1);
       });

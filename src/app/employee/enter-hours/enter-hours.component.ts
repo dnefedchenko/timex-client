@@ -3,8 +3,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {TIMESHEET_LIST_URL} from '../../app.constants';
 import {EmployeeService} from '../services/employee.service';
-import {TimesheetInfo} from '../../model/timesheet-info.interface';
+import {TimesheetInfo} from '../../model/employee/timesheet-info.interface';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Timesheet} from '../../model/employee/timesheet.interface';
 
 @Component({
   selector: 'app-timesheet',
@@ -41,29 +42,29 @@ export class EnterHoursComponent implements OnInit {
 
   private loadTimesheet() {
     this.timesheetService
-      .getTimesheetInfo(+this.timesheetId)
-      .subscribe((info: TimesheetInfo) => {
-        this.initTimeTrackingForm(info);
+      .getTimesheet(+this.timesheetId)
+      .subscribe((timesheet: Timesheet) => {
+        this.initTimeTrackingForm(timesheet);
       });
   }
 
-  private initTimeTrackingForm(timesheetInfo?: TimesheetInfo) {
+  private initTimeTrackingForm(timesheet?: Timesheet) {
     this.timeTrackingForm = this.formBuilder.group({
-      departmentName: [timesheetInfo ? timesheetInfo.departmentName : ''],
-      mondayHours: [timesheetInfo ? timesheetInfo.mondayHours : '0.00'],
-      tuesdayHours: [timesheetInfo ? timesheetInfo.tuesdayHours : '0.00'],
-      wednesdayHours: [timesheetInfo ? timesheetInfo.wednesdayHours : '0.00'],
-      thursdayHours: [timesheetInfo ? timesheetInfo.thursdayHours : '0.00'],
-      fridayHours: [timesheetInfo ? timesheetInfo.fridayHours : '0.00'],
-      saturdayHours: [timesheetInfo ? timesheetInfo.saturdayHours : '0.00'],
-      sundayHours: [timesheetInfo ? timesheetInfo.sundayHours : '0.00']
+      departmentName: [timesheet ? timesheet.departmentName : ''],
+      mondayHours: [timesheet ? timesheet.mondayHours : '0.00'],
+      tuesdayHours: [timesheet ? timesheet.tuesdayHours : '0.00'],
+      wednesdayHours: [timesheet ? timesheet.wednesdayHours : '0.00'],
+      thursdayHours: [timesheet ? timesheet.thursdayHours : '0.00'],
+      fridayHours: [timesheet ? timesheet.fridayHours : '0.00'],
+      saturdayHours: [timesheet ? timesheet.saturdayHours : '0.00'],
+      sundayHours: [timesheet ? timesheet.sundayHours : '0.00']
     });
     this.pageLoadingCompleted = true;
   }
 
   public saveTimeReport(): void {
     this.timesheetService
-      .saveTimeReport(this.timeTrackingForm.value as TimesheetInfo)
+      .saveTimeReport(this.timeTrackingForm.value as Timesheet)
       .subscribe(
         (id: number) => {
           this.router.navigateByUrl(TIMESHEET_LIST_URL);

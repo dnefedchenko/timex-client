@@ -1,5 +1,7 @@
-export interface TimesheetInfo {
+export interface Timesheet {
   id: number;
+  employeeId: number;
+  employeeName: string;
   departmentId: number;
   departmentName: string;
   mondayHours: number;
@@ -10,4 +12,5 @@ export interface TimesheetInfo {
   saturdayHours: number;
   sundayHours: number;
   totalHours: number;
+  periodEnding: string;
 }
