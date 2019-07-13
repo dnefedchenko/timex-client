@@ -16,11 +16,6 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule
-  ],
-  exports: [
-    TimesheetListComponent,
-    EnterHoursComponent,
-    PrintTimesheetComponent
   ]
 })
 export class AppEmployeeModule {
