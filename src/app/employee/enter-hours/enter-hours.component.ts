@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {TIMESHEET_LIST_URL} from '../../app.constants';
 import {EmployeeService} from '../services/employee.service';
-import {TimesheetInfo} from '../../model/employee/timesheet-info.interface';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Timesheet} from '../../model/employee/timesheet.interface';
 

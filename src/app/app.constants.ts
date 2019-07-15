@@ -1,4 +1,5 @@
 import {StaffHoursReport} from './model/manager/staff-hours.report.interface';
+import {Timesheet} from './model/employee/timesheet.interface';
 
 export const SIGN_IN_URL = '/login';
 export const TIMESHEET_LIST_URL = '/timesheet-list';
@@ -20,6 +21,23 @@ export const ROLE_EMPLOYEE = 'ROLE_EMPLOYEE';
 export const ROLE_MANAGER = 'ROLE_MANAGER';
 export const ROLE_EXECUTIVE = 'ROLE_EXECUTIVE';
 export const ROLE_ACCOUNTING = 'ROLE_ACCOUNTING';
+
+export const timesheet: Timesheet = {
+  id: 1,
+  employeeId: 1,
+  employeeName: 'John Doe',
+  departmentId: 3,
+  departmentName: 'IT',
+  mondayHours: 8,
+  tuesdayHours: 8,
+  wednesdayHours: 8,
+  thursdayHours: 8,
+  fridayHours: 8,
+  saturdayHours: 8,
+  sundayHours: 8,
+  totalHours: 40,
+  periodEnding: '12-07-2019'
+};
 
 export const staffHourReports: StaffHoursReport[] = [
   {
