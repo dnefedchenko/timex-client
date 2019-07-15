@@ -2,10 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StaffHoursReportComponent } from './staff-hours-report.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ApproveTimesheetsComponent} from '../approve-timesheets/approve-timesheets.component';
 import SpyObj = jasmine.SpyObj;
 import {Router} from '@angular/router';
-import {APPROVE_TIMESHEETS_URL} from '../../app.constants';
+import {APPROVE_TIMESHEETS_URL, staffHourReports} from '../../app.constants';
 import {ManagementService} from '../services/management.service';
 import {of} from 'rxjs';
 import {StaffHoursReport} from '../../model/manager/staff-hours.report.interface';
@@ -14,47 +13,18 @@ describe('StaffHoursReportComponent', () => {
   let testee: StaffHoursReportComponent;
   let fixture: ComponentFixture<StaffHoursReportComponent>;
 
-  let routerSpy: SpyObj<Router> = jasmine.createSpyObj('Router', ['navigateByUrl']);
-  let managementServiceSpy: SpyObj<ManagementService> =
+  const routerSpy: SpyObj<Router> = jasmine.createSpyObj('Router', ['navigateByUrl']);
+  const managementServiceSpy: SpyObj<ManagementService> =
     jasmine.createSpyObj('ManagementService', ['loadCurrentWeekReports']);
 
-  const reports: StaffHoursReport[] = [
-    {
-      employeeName: 'John Smith',
-      departmentName: 'Staff',
-      hoursForWeek: 65.0,
-      timesheetId: 1,
-      approved: false
-    },
-    {
-      employeeName: 'Kishore Kumar',
-      departmentName: 'Management',
-      hoursForWeek: 40.0,
-      timesheetId: 1,
-      approved: false
-    },
-    {
-      employeeName: 'Ying Lee',
-      departmentName: 'Staff',
-      hoursForWeek: 37.0,
-      timesheetId: 1,
-      approved: false
-    },
-    {
-      employeeName: 'Zavadi Johari',
-      departmentName: 'QA',
-      hoursForWeek: 37.5,
-      timesheetId: 1,
-      approved: false
-    }
-  ];
+  const reports: StaffHoursReport[] = staffHourReports;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StaffHoursReportComponent, ApproveTimesheetsComponent ],
+      declarations: [ StaffHoursReportComponent ],
       imports: [
         RouterTestingModule.withRoutes([
-          {path: 'approve-timesheets', component: ApproveTimesheetsComponent}
+          {path: 'approve-timesheets', redirectTo: 'staff-hours-report'}
         ])
       ],
       providers: [

@@ -1,3 +1,5 @@
+import {StaffHoursReport} from './model/manager/staff-hours.report.interface';
+
 export const SIGN_IN_URL = '/login';
 export const TIMESHEET_LIST_URL = '/timesheet-list';
 export const ENTER_HOURS_URL = '/enter-hours';
@@ -18,3 +20,34 @@ export const ROLE_EMPLOYEE = 'ROLE_EMPLOYEE';
 export const ROLE_MANAGER = 'ROLE_MANAGER';
 export const ROLE_EXECUTIVE = 'ROLE_EXECUTIVE';
 export const ROLE_ACCOUNTING = 'ROLE_ACCOUNTING';
+
+export const staffHourReports: StaffHoursReport[] = [
+  {
+    employeeName: 'John Smith',
+    departmentName: 'Staff',
+    hoursForWeek: 65.0,
+    timesheetId: 1,
+    approved: undefined
+  },
+  {
+    employeeName: 'Kishore Kumar',
+    departmentName: 'Management',
+    hoursForWeek: 40.0,
+    timesheetId: 1,
+    approved: undefined
+  },
+  {
+    employeeName: 'Ying Lee',
+    departmentName: 'Staff',
+    hoursForWeek: 37.0,
+    timesheetId: 1,
+    approved: undefined
+  },
+  {
+    employeeName: 'Zavadi Johari',
+    departmentName: 'QA',
+    hoursForWeek: 37.5,
+    timesheetId: 1,
+    approved: undefined
+  }
+];
