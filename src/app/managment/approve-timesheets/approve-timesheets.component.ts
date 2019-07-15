@@ -62,7 +62,7 @@ export class ApproveTimesheetsComponent implements OnInit {
 
   public save(): void {
     this.managementService
-      .approveTimesheets(this.approvalForm.get('timesheets').value as StaffHoursReport[])
+      .updateTimesheets(this.approvalForm.get('timesheets').value as StaffHoursReport[])
       .subscribe(response => {
         this.router.navigateByUrl(STAFF_HOURS_REPORT_URL);
       }, (error: HttpErrorResponse) => {

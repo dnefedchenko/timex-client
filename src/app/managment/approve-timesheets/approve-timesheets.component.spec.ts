@@ -16,7 +16,7 @@ describe('ApproveTimesheetsComponent', () => {
 
   const managementServiceSpy: SpyObj<ManagementService>
     = jasmine.createSpyObj('ManagementService',
-    ['loadCurrentWeekReports', 'approveTimesheets']);
+    ['loadCurrentWeekReports', 'updateTimesheets']);
   let router: Router;
 
   beforeEach(async(() => {
@@ -40,7 +40,7 @@ describe('ApproveTimesheetsComponent', () => {
     spyOn(router, 'navigateByUrl');
 
     managementServiceSpy.loadCurrentWeekReports.and.returnValue(of(staffHourReports));
-    managementServiceSpy.approveTimesheets.and.returnValue(of(staffHourReports));
+    managementServiceSpy.updateTimesheets.and.returnValue(of(staffHourReports));
 
     fixture = TestBed.createComponent(ApproveTimesheetsComponent);
     testee = fixture.componentInstance;
@@ -57,17 +57,17 @@ describe('ApproveTimesheetsComponent', () => {
   it('should save time report successfully', () => {
     testee.save();
 
-    expect(managementServiceSpy.approveTimesheets)
+    expect(managementServiceSpy.updateTimesheets)
       .toHaveBeenCalledWith(testee.approvalForm.get('timesheets').value);
     expect(router.navigateByUrl).toHaveBeenCalledWith(STAFF_HOURS_REPORT_URL);
   });
 
   it('should fail to save time report', () => {
-    managementServiceSpy.approveTimesheets.and.returnValue(throwError({message: 'Something went wrong'}));
+    managementServiceSpy.updateTimesheets.and.returnValue(throwError({message: 'Something went wrong'}));
 
     testee.save();
 
-    expect(managementServiceSpy.approveTimesheets)
+    expect(managementServiceSpy.updateTimesheets)
       .toHaveBeenCalledWith(testee.approvalForm.get('timesheets').value);
     expect(router.navigateByUrl).not.toHaveBeenCalled();
   });

@@ -45,27 +45,31 @@ export const staffHourReports: StaffHoursReport[] = [
     departmentName: 'Staff',
     hoursForWeek: 65.0,
     timesheetId: 1,
-    approved: undefined
+    approved: undefined,
+    markPaid: false
   },
   {
     employeeName: 'Kishore Kumar',
     departmentName: 'Management',
     hoursForWeek: 40.0,
-    timesheetId: 1,
-    approved: undefined
+    timesheetId: 2,
+    approved: undefined,
+    markPaid: false
   },
   {
     employeeName: 'Ying Lee',
     departmentName: 'Staff',
     hoursForWeek: 37.0,
-    timesheetId: 1,
-    approved: undefined
+    timesheetId: 3,
+    approved: undefined,
+    markPaid: false
   },
   {
     employeeName: 'Zavadi Johari',
     departmentName: 'QA',
     hoursForWeek: 37.5,
-    timesheetId: 1,
-    approved: undefined
+    timesheetId: 4,
+    approved: undefined,
+    markPaid: false
   }
 ];

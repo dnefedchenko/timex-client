@@ -45,13 +45,13 @@ describe('ManagementService Unit Test', () => {
 
   it('should approve time reports', () => {
     testee
-      .approveTimesheets(staffHourReports)
+      .updateTimesheets(staffHourReports)
       .subscribe(response => {
         expect(response).toBeDefined();
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheets/approve`);
-    expect(performedRequest.request.method).toEqual('POST');
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheets`);
+    expect(performedRequest.request.method).toEqual('PUT');
     performedRequest.flush(staffHourReports);
   });
 

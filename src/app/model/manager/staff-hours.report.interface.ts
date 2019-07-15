@@ -4,4 +4,5 @@ export interface StaffHoursReport {
   hoursForWeek: number;
   timesheetId: number;
   approved: boolean;
+  markPaid: boolean;
 }

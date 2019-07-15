@@ -1,5 +1,6 @@
-<div class="timex-fully-aligned-container timex-column-directed-flex">
-  <table class="timex-table">
+<div class="timex-fully-aligned-container timex-column-directed-flex"
+     [formGroup]="markPaidForm" *ngIf="formInitializationCompleted">
+  <table class="timex-table" formArrayName="timesheets">
     <thead>
     <tr>
       <th>Employee</th>
@@ -8,41 +9,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr *ngFor="let t of markPaidForm.get('timesheets').controls; let i = index;" [formGroupName]="i">
       <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">John Smith</a>
+        <a [routerLink]="['/timesheets', t.controls.timesheetId.value, 'print']">
+          {{t.controls.employeeName.value}}
+        </a>
       </td>
-      <td [ngStyle]="{'text-align': 'right'}">65.00</td>
+      <td [ngStyle]="{'text-align': 'right'}">{{t.controls.hoursForWeek.value}}</td>
       <td>
-        <input type="checkbox">
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">Kishore Kumar</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">40.00</td>
-      <td>
-        <input type="checkbox">
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">Ying Lee</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">37.00</td>
-      <td>
-        <input type="checkbox">
-      </td>
-    </tr>
-    <tr>
-
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">Zavadi Johari</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">37.50</td>
-      <td>
-        <input type="checkbox">
+        <input type="checkbox" formControlName="markPaid">
       </td>
     </tr>
     </tbody>
