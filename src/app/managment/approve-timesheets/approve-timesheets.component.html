@@ -1,84 +1,36 @@
-<div class="timex-fully-aligned-container timex-column-directed-flex">
-  <table class="timex-table">
-    <thead>
-    <tr>
-      <th>Employee</th>
-      <th>Hours For Week</th>
-      <th>Approve</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">John Smith</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">65.00</td>
-      <td class="timex-approval-box">
-        <span>
-          <input type="radio" id="john_smith_yes" name="john_smith" class="timex-confirmation-radio">
-          <label for="john_smith_yes">Yes</label>
-        </span>
+<div class="timex-fully-aligned-container timex-column-directed-flex" [formGroup]="approvalForm">
+  <div formArrayName="timesheets">
+    <table class="timex-table">
+      <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Hours For Week</th>
+        <th>Approve</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let t of approvalForm.get('timesheets').controls; let i = index;" [formGroupName]="i">
+        <td [ngStyle]="{'text-align': 'left'}">
+          <a [routerLink]="['/timesheets', t.controls.timesheetId.value, 'print']">
+            {{t.controls.employeeName.value}}
+          </a>
+        </td>
+        <td [ngStyle]="{'text-align': 'right'}">{{t.controls.hoursForWeek.value}}</td>
+        <td class="timex-approval-box">
+          <span>
+            <input type="radio" formControlName="approved" [value]="true" [checked]="t.controls.approved.value === true" class="timex-confirmation-radio">
+            <label>Yes</label>
+          </span>
 
-        <span>
-          <input type="radio" id="john_smith_no" name="john_smith" class="timex-confirmation-radio">
-          <label for="john_smith_no">No</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">Kishore Kumar</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">40.00</td>
-      <td class="timex-approval-box">
-        <span>
-          <input type="radio" id="kishore_kumar_yes" name="kishore_kumar" class="timex-confirmation-radio">
-          <label for="kishore_kumar_yes">Yes</label>
-        </span>
-
-        <span>
-          <input type="radio" id="kishore_kumar_no" name="kishore_kumar" class="timex-confirmation-radio">
-          <label for="kishore_kumar_no">No</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">Ying Lee</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">37.00</td>
-      <td class="timex-approval-box">
-        <span>
-          <input type="radio" id="ying_lee_yes" name="ying_lee" class="timex-confirmation-radio">
-          <label for="ying_lee_yes">Yes</label>
-        </span>
-
-        <span>
-          <input type="radio" id="ying_lee_no" name="ying_lee" class="timex-confirmation-radio">
-          <label for="ying_lee_no">No</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-
-      <td [ngStyle]="{'text-align': 'left'}">
-        <a [routerLink]="['/timesheets', 1234, 'print']">Zavadi Johari</a>
-      </td>
-      <td [ngStyle]="{'text-align': 'right'}">37.50</td>
-      <td class="timex-approval-box">
-        <span>
-          <input type="radio" id="zavadi_johari_yes" name="zavadi_johari" class="timex-confirmation-radio">
-          <label for="zavadi_johari_yes">Yes</label>
-        </span>
-
-        <span>
-          <input type="radio" id="zavadi_johari_no" name="zavadi_johari" class="timex-confirmation-radio">
-          <label for="zavadi_johari_no">No</label>
-        </span>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+          <span>
+            <input type="radio" formControlName="approved" [value]="false" [checked]="t.controls.approved.value === false" class="timex-confirmation-radio">
+            <label>No</label>
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="timex-horizontally-aligned-container">
     <button type="button" class="timex-button-primary" (click)="save()">Save</button>
