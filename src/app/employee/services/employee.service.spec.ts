@@ -37,7 +37,7 @@ describe('EmployeeService Unit Test', () => {
         expect(response).toEqual(timesheets);
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/assets/timesheets.json`);
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheets`);
     expect(performedRequest.request.method).toEqual('GET');
     performedRequest.flush(timesheets);
   });
@@ -49,7 +49,7 @@ describe('EmployeeService Unit Test', () => {
         expect(timesheet).toEqual(response);
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheet-info/${timesheet.id}`);
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheets/${timesheet.id}`);
     expect(performedRequest.request.method).toEqual('GET');
     performedRequest.flush(timesheet);
   });
@@ -61,7 +61,7 @@ describe('EmployeeService Unit Test', () => {
         expect(id).toBe(1);
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheet-info`);
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheets`);
     expect(performedRequest.request.method).toEqual('POST');
     performedRequest.flush(1);
   });

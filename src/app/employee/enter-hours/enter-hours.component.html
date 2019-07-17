@@ -15,7 +15,7 @@
         <th>Total</th>
       </tr>
     </thead>
-    <tbody [formGroup]="timeTrackingForm">
+    <tbody [formGroup]="timeTrackingForm" *ngIf="pageLoadingCompleted">
       <tr>
         <td>
           <select class="timex-select" formControlName="departmentName">

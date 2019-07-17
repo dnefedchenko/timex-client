@@ -9,7 +9,7 @@ import {EmployeeService} from '../services/employee.service';
 import {TimesheetInfo} from '../../model/employee/timesheet-info.interface';
 import {of, throwError} from 'rxjs';
 import {ActivatedRoute, convertToParamMap, Router} from '@angular/router';
-import {TIMESHEET_LIST_URL} from '../../app.constants';
+import {timesheet, TIMESHEET_LIST_URL} from '../../app.constants';
 import {Timesheet} from '../../model/employee/timesheet.interface';
 
 describe('EnterHoursComponent', () => {
@@ -29,23 +29,6 @@ describe('EnterHoursComponent', () => {
         }
       )
     }
-  };
-
-  const timesheet: Timesheet = {
-    id: 1,
-    employeeId: 1,
-    employeeName: 'John Doe',
-    departmentId: 3,
-    departmentName: 'IT',
-    mondayHours: 8,
-    tuesdayHours: 8,
-    wednesdayHours: 8,
-    thursdayHours: 8,
-    fridayHours: 8,
-    saturdayHours: 8,
-    sundayHours: 8,
-    totalHours: 40,
-    periodEnding: '12-07-2019'
   };
 
   beforeEach(async(() => {

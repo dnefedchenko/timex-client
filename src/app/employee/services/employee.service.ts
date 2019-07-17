@@ -10,14 +10,14 @@ export class EmployeeService {
   constructor(@Inject('apiUrl') private apiUrl: string, private httpClient: HttpClient) {}
 
   public getEmployeeTimesheets(employeeId: number): Observable<Timesheet[]> {
-    return this.httpClient.get<Timesheet[]>(`${this.apiUrl}/assets/timesheets.json`);
+    return this.httpClient.get<Timesheet[]>(`${this.apiUrl}/timesheets`);
   }
 
   public getTimesheet(id: number) {
-    return this.httpClient.get<Timesheet>(`${this.apiUrl}/timesheet/${id}`);
+    return this.httpClient.get<Timesheet>(`${this.apiUrl}/timesheets/${id}`);
   }
 
   public saveTimeReport(report: Timesheet): Observable<number> {
-    return this.httpClient.post<number>(`${this.apiUrl}/timesheet`, report);
+    return this.httpClient.post<number>(`${this.apiUrl}/timesheets`, report);
   }
 }
