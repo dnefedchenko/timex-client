@@ -38,7 +38,7 @@ describe('ManagementService Unit Test', () => {
         expect(response).toEqual(reports);
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/current-week-reports`);
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/reports`);
     expect(performedRequest.request.method).toEqual('GET');
     performedRequest.flush(reports);
   });
