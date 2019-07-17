@@ -1,0 +1,31 @@
+{
+  "timesheets": [
+    {
+      "id": 1234,
+      "employeeId": "1",
+      "employeeName": "John Smith",
+      "hoursForWeek": 39.5,
+      "approved": true,
+      "paid": true,
+      "periodEnding": "2019-01-14"
+    },
+    {
+      "id": 1239,
+      "employeeId": "1",
+      "employeeName": "John Smith",
+      "hoursForWeek": 43.00,
+      "approved": true,
+      "paid": true,
+      "periodEnding": "2019-01-07"
+    },
+    {
+      "id": 1242,
+      "employeeId": "1",
+      "employeeName": "John Smith",
+      "hoursForWeek": 40.00,
+      "approved": true,
+      "paid": true,
+      "periodEnding": "2018-12-30"
+    }
+  ]
+}

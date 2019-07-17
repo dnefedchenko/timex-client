@@ -14,10 +14,10 @@ export class EmployeeService {
   }
 
   public getTimesheet(id: number) {
-    return this.httpClient.get<Timesheet>(`${this.apiUrl}/timesheet-info/${id}`);
+    return this.httpClient.get<Timesheet>(`${this.apiUrl}/timesheet/${id}`);
   }
 
   public saveTimeReport(report: Timesheet): Observable<number> {
-    return this.httpClient.post<number>(`${this.apiUrl}/timesheet-info`, report);
+    return this.httpClient.post<number>(`${this.apiUrl}/timesheet`, report);
   }
 }
