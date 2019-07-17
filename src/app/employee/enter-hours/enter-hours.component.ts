@@ -80,7 +80,7 @@ export class EnterHoursComponent implements OnInit {
   public get totalHours(): number {
     let totalHours = 0;
     Object.entries(this.timeTrackingForm.value)
-      .filter(v => v[0] !== 'department')
+      .filter(v => v[0] !== 'departmentName')
       .forEach(v => {
         totalHours += +v[1];
       });

@@ -1,7 +1,7 @@
 <div class="timex-fully-aligned-container timex-column-directed-flex">
   <p>Period ending: January 21, 2017</p>
 
-  <table class="timex-table">
+  <table class="timex-table" *ngIf="pageLoadingCompleted">
     <thead>
       <tr>
         <th>Department</th>
@@ -15,7 +15,7 @@
         <th>Total</th>
       </tr>
     </thead>
-    <tbody [formGroup]="timeTrackingForm" *ngIf="pageLoadingCompleted">
+    <tbody [formGroup]="timeTrackingForm">
       <tr>
         <td>
           <select class="timex-select" formControlName="departmentName">

@@ -3,7 +3,7 @@
     <a [routerLink]="['/enter-hours', 'new']">Click here</a> to add a new timesheet, or select one from the list below
   </p>
 
-  <table class="timex-table">
+  <table class="timex-table" *ngIf="employeeTimesheets && employeeTimesheets.length">
     <thead>
     <tr>
       <th>Period Ending</th>
@@ -17,7 +17,7 @@
       <td>
         <a [routerLink]="['/enter-hours', t.id]">{{t.periodEnding | date: 'mediumDate'}}</a>
       </td>
-      <td>{{t.hoursForWeek}}</td>
+      <td>{{t.totalHours}}</td>
       <td>{{t.id}}</td>
     </tr>
     </tbody>
