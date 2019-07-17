@@ -13,6 +13,7 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 })
 export class ApproveTimesheetsComponent implements OnInit {
   public approvalForm: FormGroup;
+  public pageLoadingCompleted = false;
 
   constructor(private router: Router,
               private managementService: ManagementService,
@@ -29,7 +30,7 @@ export class ApproveTimesheetsComponent implements OnInit {
       .subscribe((reports: StaffHoursReport[]) => {
         this.initTimesheetApprovalForm(reports);
       }, (error: HttpErrorResponse) => {
-        console.log();
+        this.pageLoadingCompleted = false;
       });
   }
 
@@ -45,6 +46,7 @@ export class ApproveTimesheetsComponent implements OnInit {
     reports.forEach((report: StaffHoursReport) => {
       this.addReport(report);
     });
+    this.pageLoadingCompleted = true;
   }
 
   private addReport(report: StaffHoursReport) {

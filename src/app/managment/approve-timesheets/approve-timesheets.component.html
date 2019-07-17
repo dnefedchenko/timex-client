@@ -1,4 +1,4 @@
-<div class="timex-fully-aligned-container timex-column-directed-flex" [formGroup]="approvalForm">
+<div class="timex-fully-aligned-container timex-column-directed-flex" [formGroup]="approvalForm" *ngIf="pageLoadingCompleted">
   <div formArrayName="timesheets">
     <table class="timex-table">
       <thead>

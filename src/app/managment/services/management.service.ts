@@ -14,7 +14,6 @@ export class ManagementService {
   }
 
   public updateTimesheets(reports: StaffHoursReport[]): Observable<any> {
-    return of(reports);
-//    return this.httpClient.put(`${this.apiUrl}/timesheets`, reports);
+    return this.httpClient.put(`${this.apiUrl}/reports/1`, reports);
   }
 }
