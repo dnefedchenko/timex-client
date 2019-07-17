@@ -50,7 +50,7 @@ describe('ManagementService Unit Test', () => {
         expect(response).toBeDefined();
       });
 
-    const performedRequest = httpTestingController.expectOne(`${apiUrl}/timesheets`);
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/reports/1`);
     expect(performedRequest.request.method).toEqual('PUT');
     performedRequest.flush(staffHourReports);
   });
