@@ -55,7 +55,7 @@ export class MarkPaidComponent implements OnInit {
 
   public save(): void {
     this.managementService
-      .updateTimesheets(this.markPaidForm.get('timesheets').value as StaffHoursReport[])
+      .updateReports(this.markPaidForm.get('timesheets').value as StaffHoursReport[])
       .subscribe(response => {
         console.log(response);
       }, (error: HttpErrorResponse) => {

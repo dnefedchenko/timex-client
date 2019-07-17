@@ -13,7 +13,7 @@ describe('MarkPaidComponent', () => {
   let fixture: ComponentFixture<MarkPaidComponent>;
   const managementServiceSpy: SpyObj<ManagementService>
     = jasmine.createSpyObj('ManagementService',
-    ['loadCurrentWeekReports', 'updateTimesheets']);
+    ['loadCurrentWeekReports', 'updateReports']);
   const timesheetArrayName = 'timesheets';
   const markPaidControlName = 'markPaid';
 
@@ -33,7 +33,7 @@ describe('MarkPaidComponent', () => {
 
   beforeEach(() => {
     managementServiceSpy.loadCurrentWeekReports.and.returnValue(of(staffHourReports));
-    managementServiceSpy.updateTimesheets.and.returnValue(of(staffHourReports));
+    managementServiceSpy.updateReports.and.returnValue(of(staffHourReports));
 
     fixture = TestBed.createComponent(MarkPaidComponent);
     testee = fixture.componentInstance;
@@ -50,16 +50,16 @@ describe('MarkPaidComponent', () => {
   it('should save time report successfully', () => {
     testee.save();
 
-    expect(managementServiceSpy.updateTimesheets)
+    expect(managementServiceSpy.updateReports)
       .toHaveBeenCalledWith(testee.markPaidForm.get(timesheetArrayName).value);
   });
 
   it('should fail to save time report', () => {
-    managementServiceSpy.updateTimesheets.and.returnValue(throwError({message: 'Something went wrong'}));
+    managementServiceSpy.updateReports.and.returnValue(throwError({message: 'Something went wrong'}));
 
     testee.save();
 
-    expect(managementServiceSpy.updateTimesheets)
+    expect(managementServiceSpy.updateReports)
       .toHaveBeenCalledWith(testee.markPaidForm.get(timesheetArrayName).value);
   });
 

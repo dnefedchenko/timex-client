@@ -45,7 +45,7 @@ describe('ManagementService Unit Test', () => {
 
   it('should approve time reports', () => {
     testee
-      .updateTimesheets(staffHourReports)
+      .updateReports(staffHourReports)
       .subscribe(response => {
         expect(response).toBeDefined();
       });

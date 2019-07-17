@@ -13,7 +13,7 @@ export class ManagementService {
     return this.httpClient.get<StaffHoursReport[]>(`${this.apiUrl}/reports`);
   }
 
-  public updateTimesheets(reports: StaffHoursReport[]): Observable<any> {
+  public updateReports(reports: StaffHoursReport[]): Observable<any> {
     return this.httpClient.put(`${this.apiUrl}/reports/1`, reports);
   }
 }
