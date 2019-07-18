@@ -16,4 +16,8 @@ export class ManagementService {
   public updateReports(reports: StaffHoursReport[]): Observable<any> {
     return this.httpClient.put(`${this.apiUrl}/reports/1`, reports);
   }
+
+  loadCurrentWeekSummaryReports() {
+    return this.httpClient.get(`${this.apiUrl}/summaryReports`);
+  }
 }

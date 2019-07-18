@@ -92,5 +92,47 @@
       "approved": "undefined",
       "markPaid": false
     }
+  ],
+  "summaryReports": [
+    {
+      "managerName": "Mary Jane",
+      "hoursForWeek": 320.0,
+      "status": {
+        "approvedHours": 40.0,
+        "disapprovedHours": 0,
+        "paidHours": 40.0,
+        "unpaidHours": 0
+      }
+    },
+    {
+      "managerName": "John Doe",
+      "hoursForWeek": 162.0,
+      "status": {
+        "approvedHours": 25.0,
+        "disapprovedHours": 0,
+        "paidHours": 0,
+        "unpaidHours": 0
+      }
+    },
+    {
+      "managerName": "Ahmed Rahim",
+      "hoursForWeek": 240.0,
+      "status": {
+        "approvedHours": 75.0,
+        "disapprovedHours": 0,
+        "paidHours": 50.0,
+        "unpaidHours": 0
+      }
+    },
+    {
+      "managerName": "Ching Wei",
+      "hoursForWeek": 180.0,
+      "status": {
+        "approvedHours": 125.0,
+        "disapprovedHours": 0,
+        "paidHours": 75.0,
+        "unpaidHours": 0
+      }
+    }
   ]
 }
