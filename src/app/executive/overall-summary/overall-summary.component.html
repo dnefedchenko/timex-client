@@ -8,54 +8,24 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">John Doe</td>
-      <td [ngStyle]="{'text-align': 'right'}">320.00</td>
+    <tr *ngFor="let report of summaryReports">
+      <td [ngStyle]="{'text-align': 'left'}">{{report.managerName}}</td>
+      <td [ngStyle]="{'text-align': 'right'}">{{report.hoursForWeek}}</td>
       <td class="timex-summary-status">
-        <p>12 paid</p>
-        <p>0 approved</p>
-        <p>0 disapproved</p>
-        <p>0 unpaid</p>
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Mary Jane</td>
-      <td [ngStyle]="{'text-align': 'right'}">367.00</td>
-      <td class="timex-summary-status">
-        <p>12 paid</p>
-        <p>0 approved</p>
-        <p>0 disapproved</p>
-        <p>0 unpaid</p>
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Ahmed Rahim</td>
-      <td [ngStyle]="{'text-align': 'right'}">312.00</td>
-      <td class="timex-summary-status">
-        <p>12 paid</p>
-        <p>0 approved</p>
-        <p>0 disapproved</p>
-        <p>0 unpaid</p>
-      </td>
-    </tr>
-    <tr>
-      <td [ngStyle]="{'text-align': 'left'}">Ching Wei</td>
-      <td [ngStyle]="{'text-align': 'right'}">225.00</td>
-      <td class="timex-summary-status">
-        <p>12 paid</p>
-        <p>0 approved</p>
-        <p>0 disapproved</p>
-        <p>0 unpaid</p>
+        <p>{{report.status.paidHours}} paid</p>
+        <p>{{report.status.approvedHours}} approved</p>
+        <p>{{report.status.disapprovedHours}} disapproved</p>
+        <p>{{report.status.unpaidHours}} unpaid</p>
       </td>
     </tr>
     <tr class="timex-highlighted-cell">
       <td [ngStyle]="{'text-align': 'left'}">Average Hours</td>
-      <td [ngStyle]="{'text-align': 'right'}">300.00</td>
+      <td [ngStyle]="{'text-align': 'right'}">{{averageHours}}</td>
       <td></td>
     </tr>
     <tr class="timex-highlighted-cell">
       <td [ngStyle]="{'text-align': 'left'}">TOTAL</td>
-      <td [ngStyle]="{'text-align': 'right'}">1300.00</td>
+      <td [ngStyle]="{'text-align': 'right'}">{{totalHours}}</td>
       <td></td>
     </tr>
     </tbody>
