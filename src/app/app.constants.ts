@@ -1,5 +1,6 @@
 import {StaffHoursReport} from './model/manager/staff-hours.report.interface';
 import {Timesheet} from './model/employee/timesheet.interface';
+import {OverallSummaryReport} from './model/executive/overall-summary.interface';
 
 export const SIGN_IN_URL = '/login';
 export const TIMESHEET_LIST_URL = '/timesheet-list';
@@ -71,5 +72,48 @@ export const staffHourReports: StaffHoursReport[] = [
     timesheetId: 4,
     approved: undefined,
     markPaid: false
+  }
+];
+
+export const summaryReports: OverallSummaryReport[] = [
+  {
+    managerName: 'Mary Jane',
+    hoursForWeek: 320,
+    status: {
+      approvedHours: 40,
+      disapprovedHours: 0,
+      paidHours: 40,
+      unpaidHours: 0
+    }
+  },
+  {
+    managerName: 'John Doe',
+    hoursForWeek: 162,
+    status: {
+      approvedHours: 25,
+      disapprovedHours: 0,
+      paidHours: 0,
+      unpaidHours: 0
+    }
+  },
+  {
+    managerName: 'Ahmed Rahim',
+    hoursForWeek: 240,
+    status: {
+      approvedHours: 75,
+      disapprovedHours: 0,
+      paidHours: 50,
+      unpaidHours: 0
+    }
+  },
+  {
+    managerName: 'Ching Wei',
+    hoursForWeek: 180,
+    status: {
+      approvedHours: 125,
+      disapprovedHours: 0,
+      paidHours: 75,
+      unpaidHours: 0
+    }
   }
 ];

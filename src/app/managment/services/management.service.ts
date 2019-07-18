@@ -17,7 +17,7 @@ export class ManagementService {
     return this.httpClient.put(`${this.apiUrl}/reports/1`, reports);
   }
 
-  loadCurrentWeekSummaryReports() {
+  public loadCurrentWeekSummaryReports() {
     return this.httpClient.get(`${this.apiUrl}/summaryReports`);
   }
 }

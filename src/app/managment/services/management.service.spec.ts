@@ -1,4 +1,4 @@
-import {staffHourReports, timesheet} from '../../app.constants';
+import {staffHourReports, summaryReports, timesheet} from '../../app.constants';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {environment} from '../../../environments/environment';
 import {Timesheet} from '../../model/employee/timesheet.interface';
@@ -6,6 +6,7 @@ import {TestBed} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 import {ManagementService} from './management.service';
 import {StaffHoursReport} from '../../model/manager/staff-hours.report.interface';
+import {OverallSummaryReport} from '../../model/executive/overall-summary.interface';
 
 describe('ManagementService Unit Test', () => {
   let testee: ManagementService;
@@ -15,6 +16,7 @@ describe('ManagementService Unit Test', () => {
   let httpTestingController: HttpTestingController;
 
   const reports: StaffHoursReport[] = staffHourReports;
+  const overallSummaryReports: OverallSummaryReport[] = summaryReports;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -53,6 +55,18 @@ describe('ManagementService Unit Test', () => {
     const performedRequest = httpTestingController.expectOne(`${apiUrl}/reports/1`);
     expect(performedRequest.request.method).toEqual('PUT');
     performedRequest.flush(staffHourReports);
+  });
+
+  it('should get overall summary reports', () => {
+    testee
+      .loadCurrentWeekSummaryReports()
+      .subscribe((response: OverallSummaryReport[]) => {
+        expect(response).toEqual(overallSummaryReports);
+      });
+
+    const performedRequest = httpTestingController.expectOne(`${apiUrl}/summaryReports`);
+    expect(performedRequest.request.method).toEqual('GET');
+    performedRequest.flush(overallSummaryReports);
   });
 
   afterEach(() => {
