@@ -22,7 +22,6 @@ export class MarkPaidComponent implements OnInit {
         this.initMarkPaidForm(reports);
       }, (error: HttpErrorResponse) => {
         this.formInitializationCompleted = false;
-        console.log();
       });
   }
   private initMarkPaidForm(reports: StaffHoursReport[]) {
@@ -56,9 +55,8 @@ export class MarkPaidComponent implements OnInit {
   public save(): void {
     this.managementService
       .updateReports(this.markPaidForm.get('timesheets').value as StaffHoursReport[])
-      .subscribe(response => {
-        console.log(response);
-      }, (error: HttpErrorResponse) => {
+      .subscribe(response => {},
+        (error: HttpErrorResponse) => {
         console.log(error.message);
       });
   }

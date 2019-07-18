@@ -1,7 +1,6 @@
 import {staffHourReports, summaryReports, timesheet} from '../../app.constants';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {environment} from '../../../environments/environment';
-import {Timesheet} from '../../model/employee/timesheet.interface';
 import {TestBed} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 import {ManagementService} from './management.service';

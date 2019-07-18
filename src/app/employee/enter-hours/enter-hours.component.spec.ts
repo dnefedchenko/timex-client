@@ -6,11 +6,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {TimesheetListComponent} from '../timesheet-list/timesheet-list.component';
 import SpyObj = jasmine.SpyObj;
 import {EmployeeService} from '../services/employee.service';
-import {TimesheetInfo} from '../../model/employee/timesheet-info.interface';
 import {of, throwError} from 'rxjs';
 import {ActivatedRoute, convertToParamMap, Router} from '@angular/router';
 import {timesheet, TIMESHEET_LIST_URL} from '../../app.constants';
-import {Timesheet} from '../../model/employee/timesheet.interface';
 
 describe('EnterHoursComponent', () => {
   let testee: EnterHoursComponent;

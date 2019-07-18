@@ -4,7 +4,7 @@ import { MarkPaidComponent } from './mark-paid.component';
 import {FormArray, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {ManagementService} from '../../managment/services/management.service';
 import SpyObj = jasmine.SpyObj;
-import {STAFF_HOURS_REPORT_URL, staffHourReports} from '../../app.constants';
+import {staffHourReports} from '../../app.constants';
 import {of, throwError} from 'rxjs';
 import {RouterTestingModule} from '@angular/router/testing';
 

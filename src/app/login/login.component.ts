@@ -5,7 +5,6 @@ import {LoginService} from './services/login/login.service';
 import {Employee} from '../model/auth/employee.interface';
 import {HttpErrorResponse} from '@angular/common/http';
 import {
-  CURRENT_EMPLOYEE_KEY,
   MARK_PAID_URL,
   OVERALL_SUMMARY_URL,
   SIGN_IN_URL,
